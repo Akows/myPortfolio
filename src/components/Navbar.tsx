@@ -1,11 +1,11 @@
 import React from 'react';
 
-const MainPage: React.FC = () => {
+const Navbar: React.FC = () => {
   return (
     <React.Fragment>
-      <div>MainPage</div>
+      <div>Navbar</div>
     </React.Fragment>
   );
 };
 
-export default MainPage;
+export default Navbar;
