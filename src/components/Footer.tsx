@@ -8,10 +8,14 @@ const FooterWrapper = styled.div`
   bottom: 0; // 화면 하단에 위치시킴
   left: 0;
 
-  background-color: #333; // 배경색 설정
-  color: #fff; // 글자색 설정
+  background-color: ${props => props.theme.primaryBackground};
+  color: ${props => props.theme.primaryText};
   text-align: center; // 텍스트를 중앙에 위치시킴
   line-height: 50px; // 글자를 vertically center에 위치시킴
+
+  & > div {
+    font-size: 16px;
+  }
 
   // 반응형 대응
   @media (max-width: 768px) {
@@ -23,7 +27,7 @@ const FooterWrapper = styled.div`
 const Footer: React.FC = () => {
   return (
     <FooterWrapper>
-      <div>Footer</div>
+      <div>@ LEE YUSEUNG 2023</div>
     </FooterWrapper>
   );
 };

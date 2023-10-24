@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
     <NavbarWrapper>
       <NavLinks>
         <Link to="/">이유승 포트폴리오</Link>
-        <Link to="/introducemyself">소개</Link>
+        <Link to="/introducemyself">자기소개</Link>
         <Link to="/myportfolio">포트폴리오</Link>
       </NavLinks>
 
