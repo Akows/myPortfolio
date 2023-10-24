@@ -1,39 +1,28 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
+// 테마 상태 정의
+interface ThemeState {
+  value: 'white' | 'black';
 }
 
-const initialState: Todo[] = [];
+const initialState: ThemeState = {
+  value: 'white', // 초기 테마 설정
+};
 
-const todosSlice = createSlice({
-  name: 'todos',
+const themeSlice = createSlice({
+  name: 'theme',
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<string>) => {
-      const newTodo: Todo = {
-        id: Date.now(),
-        text: action.payload,
-        completed: false,
-      };
-      state.push(newTodo);
-    },
-    toggleTodo: (state, action: PayloadAction<number>) => {
-      const todo = state.find(todo => todo.id === action.payload);
-      if (todo) {
-        todo.completed = !todo.completed;
-      }
-    },
-    deleteTodo: (state, action: PayloadAction<number>) => {
-      const index = state.findIndex(todo => todo.id === action.payload);
-      if (index !== -1) {
-        state.splice(index, 1);
+    // 테마 변경 액션
+    toggleTheme: state => {
+      if (state.value === 'white') {
+        state.value = 'black';
+      } else {
+        state.value = 'white';
       }
     },
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo } = todosSlice.actions;
-export default todosSlice.reducer;
+export const { toggleTheme } = themeSlice.actions;
+export default themeSlice.reducer;
