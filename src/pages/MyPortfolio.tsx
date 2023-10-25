@@ -5,6 +5,14 @@ interface ModalBackgroundProps {
   show: boolean;
 }
 
+interface Project {
+  id: number;
+  title: string;
+  date: string;
+  techs: string[];
+  features: string[];
+}
+
 const PortfolioWrapper = styled.div`
   width: 100%;
   min-height: calc(100vh - 80px);
@@ -41,7 +49,7 @@ const BannerWrapper = styled.div`
 const PortfolioItem = styled.div`
   display: flex;
   gap: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 130px;
   align-items: center;
 
   h2 {
@@ -138,55 +146,82 @@ const Modal = styled.div`
 const CloseButton = styled.button`
   background-color: transparent;
   border: none;
-  color: white;
+  color: black;
   font-size: 24px;
   cursor: pointer;
   position: absolute;
   top: 10px;
   right: 10px;
+  position: relative; // 상대 위치로 변경
+  margin-top: 20px; // 모달의 아래 영역에 위치시키기 위해 마진 추가
 `;
 
 const MyPortfolio: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
+  // 몇번 모달창을 출력할 것인지 제어하는 state.
+  const [showModal, setShowModal] = useState<number | null>(null);
+
+  const projectList: Project[] = [
+    {
+      id: 1,
+      title: '프로젝트 제목 1',
+      date: '2023/03/01 ~ 2023/04/01',
+      techs: ['React', 'JavaScript'],
+      features: ['구현 기능 1-1', '구현 기능 1-2', '구현 기능 1-3'],
+    },
+    {
+      id: 2,
+      title: '프로젝트 제목 2',
+      date: '2023/04/02 ~ 2023/05/02',
+      techs: ['React', 'TypeScript'],
+      features: ['구현 기능 2-1', '구현 기능 2-2'],
+    },
+    // ... 여기에 추가 프로젝트 정보를 계속 입력.
+  ];
 
   return (
     <PortfolioWrapper>
       <BannerWrapper />
       <ContentWrapper>
-        <PortfolioItem>
-          <Thumbnail>프로젝트 사진</Thumbnail>
-          <Description>
-            <h2>프로젝트 제목</h2>
-            <p>2023/03/03 ~ 2023/04/04</p>
-            <div className="tech-stack">
-              <span>React</span>
-              <span>JavaScript</span>
-            </div>
-            <p>• 구현 기능 간략 1</p>
-            <p>• 구현 기능 간략 2</p>
-            <p>• 구현 기능 간략 3</p>
-            <button onClick={() => setShowModal(true)}>상세보기</button>
-          </Description>
-        </PortfolioItem>
+        {/* 프로젝트 설명 UI */}
+        {projectList.map((project, idx) => (
+          <PortfolioItem key={idx}>
+            <Thumbnail>프로젝트 사진</Thumbnail>
+            <Description>
+              <h2>{project.title}</h2>
+              <p>{project.date}</p>
+              <div className="tech-stack">
+                {project.techs.map(tech => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+              {project.features.map(feature => (
+                <p key={feature}>• {feature}</p>
+              ))}
+              <button onClick={() => setShowModal(idx)}>상세보기</button>
+            </Description>
+          </PortfolioItem>
+        ))}
       </ContentWrapper>
-      <ModalBackground show={showModal}>
-        <Modal>
-          <button className="close-btn" onClick={() => setShowModal(false)}>
-            X
-          </button>
-          <h2>프로젝트 제목</h2>
-          <img src="image.jpg" alt="프로젝트 사진" />
-          <div className="tech-stack">
-            <span>React</span>
-            <span>JavaScript</span>
-          </div>
-          <a href="github-link">GitHub</a>
-          <a href="deployed-link">Deploy</a>
-          <a href="intro-page-link">Introduce Link</a>
-          <p>이런 저런 구현을 했습니다..</p>
-          <CloseButton onClick={() => setShowModal(false)}>X</CloseButton>
-        </Modal>
-      </ModalBackground>
+
+      {/* 프로젝트 설명 모달창 UI */}
+      {projectList.map((project, idx) => (
+        <ModalBackground key={idx} show={showModal === idx}>
+          <Modal>
+            <h2>{project.title}</h2>
+            <img src="image.jpg" alt="프로젝트 사진" />
+            <div className="tech-stack">
+              {project.techs.map(tech => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
+            <a href="github-link">GitHub</a>
+            <a href="deployed-link">Deploy</a>
+            <a href="intro-page-link">Introduce Link</a>
+            <p>이런 저런 구현을 했습니다..</p>
+            <CloseButton onClick={() => setShowModal(null)}>닫기</CloseButton>
+          </Modal>
+        </ModalBackground>
+      ))}
     </PortfolioWrapper>
   );
 };
