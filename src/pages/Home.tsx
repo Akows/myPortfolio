@@ -1,6 +1,29 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+
+const fadeFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+// 아래에서 위로 투명한 상태에서 뚜렷해지는 애니메이션
+const fadeFromBottom = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const HomeWrapper = styled.div`
   width: 100%;
@@ -37,6 +60,8 @@ const Introduction = styled.div`
   text-align: left; // 우측 정렬
   margin-bottom: 30px;
   line-height: 1.5;
+
+  animation: ${fadeFromLeft} 2s forwards; // 좌측에서 우측으로 투명한 상태에서 뚜렷해지는 애니메이션 적용
 `;
 
 const LargeText = styled.p`
@@ -55,6 +80,8 @@ const ButtonWrapper = styled.div`
   gap: 100px;
   justify-content: center;
   margin-bottom: 120px;
+
+  animation: ${fadeFromBottom} 2s forwards; // 아래에서 위로 투명한 상태에서 뚜렷해지는 애니메이션 적용
 
   @media (max-width: 1200px) {
     flex-direction: column;
@@ -88,6 +115,10 @@ const StyledButton = styled(Link)`
     border-bottom: 1px solid ${props => props.theme.primaryText}; // 선으로 구분
   }
 
+  span:first-child {
+    font-size: 1.5rem; // 첫 번째 span 태그의 글자 크기 조절
+  }
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
@@ -103,7 +134,7 @@ const StyledButton = styled(Link)`
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.5rem;
+      font-size: 2rem;
       z-index: 1;
       opacity: 1; // 더보기 글자에 대해 투명도를 적용하지 않음
     }
