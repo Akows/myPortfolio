@@ -107,6 +107,14 @@ const Description = styled.div`
       border-radius: 5px;
     }
   }
+
+  & > button {
+    height: 50px;
+    border-radius: 15px;
+    font-family: 'DNFBitBitv2', sans-serif;
+    background-color: ${props => props.theme.primaryBackground};
+    color: ${props => props.theme.primaryText};
+  }
 `;
 
 const ModalBackground = styled.div<ModalBackgroundProps>`
@@ -125,7 +133,8 @@ const ModalBackground = styled.div<ModalBackgroundProps>`
 const Modal = styled.div`
   width: 80%;
   max-width: 800px;
-  background-color: #fff;
+  background-color: ${props => props.theme.primaryBackground};
+  color: ${props => props.theme.primaryText};
   padding: 20px;
   border-radius: 5px;
 
@@ -146,7 +155,7 @@ const Modal = styled.div`
 const CloseButton = styled.button`
   background-color: transparent;
   border: none;
-  color: black;
+  color: ${props => props.theme.primaryText};
   font-size: 24px;
   cursor: pointer;
   position: absolute;
@@ -174,6 +183,13 @@ const MyPortfolio: React.FC = () => {
       date: '2023/04/02 ~ 2023/05/02',
       techs: ['React', 'TypeScript'],
       features: ['구현 기능 2-1', '구현 기능 2-2'],
+    },
+    {
+      id: 3,
+      title: '프로젝트 제목 3',
+      date: '2023/04/02 ~ 2023/05/02',
+      techs: ['React'],
+      features: ['구현 기능 3-1'],
     },
     // ... 여기에 추가 프로젝트 정보를 계속 입력.
   ];
