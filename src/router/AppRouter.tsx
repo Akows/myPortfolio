@@ -19,6 +19,7 @@ const themes = {
     toggleBackground: '#aaa',
     toggleCircle: '#333',
     togglebuttoncolor: '#fff',
+    secondaryBackground: 'rgba(255, 255, 255, 0.8)', // span 태그의 배경색
     hoverBackground: 'rgba(255, 255, 255, 0.3)', // hover 시의 배경색
   },
   black: {
@@ -28,6 +29,7 @@ const themes = {
     toggleBackground: '#aaa',
     toggleCircle: '#fff',
     togglebuttoncolor: '#333',
+    secondaryBackground: 'rgba(0, 0, 0, 0.8)', // span 태그의 배경색
     hoverBackground: 'rgba(0, 0, 0, 0.6)', // hover 시의 배경색
   },
 };

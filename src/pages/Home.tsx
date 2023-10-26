@@ -121,21 +121,37 @@ const StyledButton = styled(Link)<StyledButtonProps>`
   background-position: center; // 이미지를 중앙에 배치
   background-repeat: no-repeat; // 이미지 반복 방지
 
-  span {
+  /* span {
     width: 100%; // 너비를 100%로 지정하여 부모 컴포넌트의 너비와 동일하게 설정
     text-align: center; // 텍스트 중앙 정렬
     background-color: ${props =>
-      props.theme.secondaryBackground}; // 테마 변경과 연동되는 배경색 적용
+    props.theme.secondaryBackground}; // 테마 변경과 연동되는 배경색 적용
     color: ${props => props.theme.primaryText};
     position: absolute; // span의 위치를 절대 위치로 지정
     bottom: 0; // span을 부모 컴포넌트의 하단에 배치
     padding: 10px 0; // 상하 패딩 적용
     z-index: 2; // z-index를 통해 배경 이미지 위에 배경색이 표시되도록 설정
+  } */
+
+  // StyledButton 내부의 span 태그 스타일링
+  span {
+    width: 100%;
+    text-align: center;
+    background-color: ${props =>
+      props.theme.secondaryBackground}; // 테마에 따른 배경색 적용
+    color: ${props => props.theme.primaryText};
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0;
+    z-index: 2;
+
+    // 아래와 같이 투명도를 조금 주면 배경이미지와 조화롭게 표시될 수 있습니다.
+    opacity: 0.9;
   }
 
   span:first-child {
     font-size: 1.5rem;
-    margin-bottom: 20px; // 첫 번째 span 태그의 하단 마진 적용
+    margin-bottom: 45px; // 첫 번째 span 태그의 하단 마진 적용
   }
 
   &:hover {
