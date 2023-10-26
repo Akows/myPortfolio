@@ -2,6 +2,14 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import backImg from '../images/pexels-fwstudio-164005.jpg';
+import MyImg from '../images/upimage.jpg';
+import PortImg from '../images/pexels-ann-h-14936128.jpg';
+
+interface StyledButtonProps {
+  backImage?: string;
+}
+
 const fadeFromLeft = keyframes`
   from {
     opacity: 0;
@@ -49,7 +57,7 @@ const ContentWrapper = styled.div`
 const Banner = styled.div`
   height: 300px;
   background-color: #e9ecef;
-  background-image: url('image.jpg');
+  background-image: url(${backImg});
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
@@ -90,12 +98,12 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const StyledButton = styled(Link)`
+const StyledButton = styled(Link)<StyledButtonProps>`
   width: 550px;
   height: 400px; // 2배 높이로 변경
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: ${props => props.theme.secondaryText};
   transition:
@@ -108,24 +116,44 @@ const StyledButton = styled(Link)`
   border-radius: 15px; // 모든 모서리를 둥글게 처리
   padding-top: 20px; // 이미지와 선을 구분하기 위한 패딩 추가
 
-  img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid ${props => props.theme.primaryText}; // 선으로 구분
+  background-image: url(${props => props.backImage});
+  background-size: cover; // 이미지를 커버 모드로 설정
+  background-position: center; // 이미지를 중앙에 배치
+  background-repeat: no-repeat; // 이미지 반복 방지
+
+  span {
+    width: 100%; // 너비를 100%로 지정하여 부모 컴포넌트의 너비와 동일하게 설정
+    text-align: center; // 텍스트 중앙 정렬
+    background-color: ${props =>
+      props.theme.secondaryBackground}; // 테마 변경과 연동되는 배경색 적용
+    color: ${props => props.theme.primaryText};
+    position: absolute; // span의 위치를 절대 위치로 지정
+    bottom: 0; // span을 부모 컴포넌트의 하단에 배치
+    padding: 10px 0; // 상하 패딩 적용
+    z-index: 2; // z-index를 통해 배경 이미지 위에 배경색이 표시되도록 설정
   }
 
   span:first-child {
-    font-size: 1.5rem; // 첫 번째 span 태그의 글자 크기 조절
+    font-size: 1.5rem;
+    margin-bottom: 20px; // 첫 번째 span 태그의 하단 마진 적용
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    color: ${props => props.theme.primaryText};
 
+    background-image: linear-gradient(
+        ${props => props.theme.hoverBackground},
+        ${props => props.theme.hoverBackground}
+      ),
+      url(${props => props.backImage});
     & > * {
       // 모든 직접적인 자식 요소들에 투명도를 적용
       opacity: 0.1;
+    }
+
+    span {
+      color: #fff; // hover 상태에서의 span 태그의 텍스트 색상 변경
     }
 
     &::before {
@@ -161,13 +189,11 @@ const Home: React.FC = () => {
           </BorderedBox>
         </Introduction>
         <ButtonWrapper>
-          <StyledButton to="/introducemyself">
-            <img src="path-to-introduction-image.jpg" alt="이력서버튼사진" />
+          <StyledButton to="/introducemyself" backImage={MyImg}>
             <span>이력서</span>
             <span>저의 이력서입니다.</span>
           </StyledButton>
-          <StyledButton to="/myportfolio">
-            <img src="path-to-portfolio-image.jpg" alt="포트폴리오버튼사진" />
+          <StyledButton to="/myportfolio" backImage={PortImg}>
             <span>포트폴리오</span>
             <span>저의 포트폴리오입니다.</span>
           </StyledButton>
