@@ -195,13 +195,16 @@ const Home: React.FC = () => {
       <ContentWrapper>
         <Banner />
         <Introduction>
-          나는 어떤 개발자..
-          <LargeText>나는 이런 개발자..</LargeText>
+          Hello! I'm Yuseung Lee, a front-end developer.
+          <LargeText>안녕하세요! 프론트엔드 개발자, 이유승입니다.</LargeText>
           <BorderedBox>
-            <p>나는</p>
-            <p>나는나는</p>
-            <p>나는나는나는</p>
-            <p>나는나는나는나는</p>
+            <p>저는..</p>
+            <p>현재에 안주하지 않고 함께 성장하기 위해 끊임없이 공부합니다.</p>
+            <p>
+              상대방의 니즈에 공감하는 개발자가 되기 위해 소프트 스킬을
+              키워나갑니다.
+            </p>
+            <p>습득한 지식을 기록하고 공유하는 개발자가 되기를 지향합니다.</p>
           </BorderedBox>
         </Introduction>
         <ButtonWrapper>

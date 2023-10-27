@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import MyImg from '../images/upimage.jpg';
+
 const IntroduceWrapper = styled.div`
   width: 100%;
   min-height: calc(100vh - 80px);
@@ -25,12 +27,12 @@ const ContentWrapper = styled.div`
 const PersonalInfo = styled.div`
   display: flex;
   gap: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 150px;
 
   img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    border-radius: 20%;
     object-fit: cover;
   }
 
@@ -41,8 +43,21 @@ const PersonalInfo = styled.div`
   }
 `;
 
+const SubTitle = styled.h3`
+  font-size: 20px;
+  margin-bottom: -20px;
+  font-weight: bold;
+  color: ${props => props.theme.secondaryText};
+`;
+
+const InfoText = styled.p`
+  font-size: 16px;
+  margin-bottom: -10px;
+  color: ${props => props.theme.primaryText};
+`;
+
 const Section = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 150px;
 
   h2 {
     position: relative;
@@ -66,20 +81,59 @@ const Skill = styled.div`
   gap: 10px;
 `;
 
-const SkillCategory = styled.h3`
-  font-weight: bold;
+const SkillCategory = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
+`;
+
+const CategoryTag = styled.span`
+  padding: 5px 15px;
+  border: 1px solid ${props => props.theme.secondaryText};
+  border-radius: 5px;
+  font-weight: bold;
+`;
+
+const SkillItem = styled.span`
+  padding: 5px 10px;
+  border: 1px solid ${props => props.theme.secondaryText};
+  border-radius: 5px;
+  margin-right: 10px;
+  display: inline-block;
 `;
 
 const Education = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+`;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+const EducationItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+`;
+
+const EducationContent = styled.span`
+  font-weight: bold;
+  padding-left: 10px;
+  position: relative;
+
+  &::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: ${props => props.theme.secondaryText};
   }
+`;
+
+const EducationDate = styled.span`
+  color: ${props => props.theme.primaryText};
+  font-size: 14px;
 `;
 
 const IntroduceMyself: React.FC = () => {
@@ -87,43 +141,75 @@ const IntroduceMyself: React.FC = () => {
     <IntroduceWrapper>
       <ContentWrapper>
         <PersonalInfo>
-          <img src="path-to-your-photo.jpg" alt="사진 어딨냐..." />
+          <img src={MyImg} alt="내사진" />
           <div>
-            <h1>이유승</h1>
-            <p>Phone: 123-4567-7899</p>
-            <p>Email: email@email.com</p>
-            <p>Blog: http://myblog.com</p>
-            <p>GitHub: http://github.com/mymy</p>
+            <h1>이유승 | Lee Yuseung</h1>
+
+            <SubTitle>연락처</SubTitle>
+            <InfoText>Phone: 010-3629-3686</InfoText>
+            <InfoText>Email: akows141@email.com</InfoText>
+
+            <SubTitle>Blog & Github</SubTitle>
+            <InfoText>velog: https://velog.io/@skyoffly</InfoText>
+            <InfoText>myBlog: https://myblog-350b6.web.app/main</InfoText>
+            <InfoText>GitHub: https://github.com/Akows</InfoText>
           </div>
         </PersonalInfo>
 
         <Section>
           <h2>자기소개</h2>
-          <p>나를 소개소개...</p>
+          <p>
+            사용자 중심의 서비스 개발에 열정을 가지고 있는 프론트엔드 개발자
+            이유승입니다.
+          </p>
+          <p>
+            다양한 프로젝트를 통해 사용자 친화적인 UI와 효율적인 기능 구현을
+            위해 끊임없이 학습하고 도전하고 있습니다. 기술과 창의력을 결합하여
+            세상에 긍정적인 영향을 미치고 싶습니다.
+          </p>
         </Section>
 
         <Section>
           <h2>기술 스택</h2>
           <Skill>
-            <SkillCategory>Front-end</SkillCategory>
-            <p>React, JavaScript, TypeScript, HTML, CSS...</p>
+            <SkillCategory>
+              <CategoryTag>프로그래밍 언어</CategoryTag>
+              <SkillItem>HTML</SkillItem>
+              <SkillItem>CSS</SkillItem>
+              <SkillItem>JavaScript</SkillItem>
+              <SkillItem>TypeScript</SkillItem>
+            </SkillCategory>
 
-            <SkillCategory>Co-working 및 Tools</SkillCategory>
-            <p>Git...</p>
+            <SkillCategory>
+              <CategoryTag>프론트엔드 스킬</CategoryTag>
+              <SkillItem>Styled Components</SkillItem>
+              <SkillItem>React.js</SkillItem>
+              <SkillItem>Redux</SkillItem>
+              <SkillItem>React-Redux</SkillItem>
+            </SkillCategory>
+
+            <SkillCategory>
+              <CategoryTag>Co-working 및 Tools</CategoryTag>
+              <SkillItem>VS Code</SkillItem>
+              <SkillItem>Git</SkillItem>
+              <SkillItem>Github</SkillItem>
+              <SkillItem>Sourcetree</SkillItem>
+              <SkillItem>Firebase</SkillItem>
+              <SkillItem>Vercel</SkillItem>
+            </SkillCategory>
           </Skill>
         </Section>
 
         <Section>
           <h2>교육</h2>
           <Education>
-            <div>
-              <p>• 받은 교육...</p>
-              <p>• 받은 교육...</p>
-            </div>
-            <div>
-              <p>1 (123213 - 123123)</p>
-              <p>2 (123213 - 123123)</p>
-            </div>
+            <EducationItem>
+              <EducationContent>
+                원티드 프리온보딩 프론트엔드 인턴십 12차
+              </EducationContent>
+              <EducationDate>(2023.08 ~ 2023.09)</EducationDate>
+            </EducationItem>
+            • 설명 1
           </Education>
         </Section>
       </ContentWrapper>
