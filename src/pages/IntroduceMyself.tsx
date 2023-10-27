@@ -47,13 +47,18 @@ const SubTitle = styled.h3`
   font-size: 20px;
   margin-bottom: -20px;
   font-weight: bold;
-  color: ${props => props.theme.secondaryText};
+  color: ${props => props.theme.emphasisColor}; // 강조 색상으로 변경
 `;
 
 const InfoText = styled.p`
   font-size: 16px;
   margin-bottom: -10px;
   color: ${props => props.theme.primaryText};
+
+  // 강조하고 싶은 텍스트에 클래스 이름을 추가해 색상을 변경
+  span.emphasized {
+    color: ${props => props.theme.emphasisColor};
+  }
 `;
 
 const Section = styled.div`
@@ -93,6 +98,11 @@ const CategoryTag = styled.span`
   border: 1px solid ${props => props.theme.secondaryText};
   border-radius: 5px;
   font-weight: bold;
+
+  // 강조하고 싶은 텍스트에 클래스 이름을 추가해 색상을 변경
+  span.emphasized {
+    color: ${props => props.theme.emphasisColor};
+  }
 `;
 
 const SkillItem = styled.span`
@@ -111,8 +121,10 @@ const Education = styled.div`
 
 const EducationItem = styled.div`
   display: flex;
+  justify-content: space-between; // 양 끝에 내부 아이템들을 위치시킵니다.
   align-items: center;
   gap: 15px;
+  margin-bottom: 10px; // 여백 추가
 `;
 
 const EducationContent = styled.span`
@@ -136,6 +148,22 @@ const EducationDate = styled.span`
   font-size: 14px;
 `;
 
+const Description = styled.p`
+  padding-left: 10px;
+  position: relative;
+  margin-bottom: -10px;
+
+  &::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: ${props => props.theme.secondaryText};
+  }
+`;
+
 const IntroduceMyself: React.FC = () => {
   return (
     <IntroduceWrapper>
@@ -146,13 +174,26 @@ const IntroduceMyself: React.FC = () => {
             <h1>이유승 | Lee Yuseung</h1>
 
             <SubTitle>연락처</SubTitle>
-            <InfoText>Phone: 010-3629-3686</InfoText>
-            <InfoText>Email: akows141@email.com</InfoText>
+            <InfoText>
+              <span className="emphasized">Phone:</span> 010-3629-3686
+            </InfoText>
+            <InfoText>
+              <span className="emphasized">Email:</span> akows141@email.com
+            </InfoText>
 
             <SubTitle>Blog & Github</SubTitle>
-            <InfoText>velog: https://velog.io/@skyoffly</InfoText>
-            <InfoText>myBlog: https://myblog-350b6.web.app/main</InfoText>
-            <InfoText>GitHub: https://github.com/Akows</InfoText>
+            <InfoText>
+              <span className="emphasized">velog:</span>
+              https://velog.io/@skyoffly
+            </InfoText>
+            <InfoText>
+              <span className="emphasized">myBlog:</span>
+              https://myblog-350b6.web.app/main
+            </InfoText>
+            <InfoText>
+              <span className="emphasized">GitHub:</span>
+              https://github.com/Akows
+            </InfoText>
           </div>
         </PersonalInfo>
 
@@ -173,7 +214,9 @@ const IntroduceMyself: React.FC = () => {
           <h2>기술 스택</h2>
           <Skill>
             <SkillCategory>
-              <CategoryTag>프로그래밍 언어</CategoryTag>
+              <CategoryTag>
+                <span className="emphasized">프로그래밍 언어:</span>
+              </CategoryTag>
               <SkillItem>HTML</SkillItem>
               <SkillItem>CSS</SkillItem>
               <SkillItem>JavaScript</SkillItem>
@@ -181,7 +224,9 @@ const IntroduceMyself: React.FC = () => {
             </SkillCategory>
 
             <SkillCategory>
-              <CategoryTag>프론트엔드 스킬</CategoryTag>
+              <CategoryTag>
+                <span className="emphasized">프론트엔드 스킬:</span>
+              </CategoryTag>
               <SkillItem>Styled Components</SkillItem>
               <SkillItem>React.js</SkillItem>
               <SkillItem>Redux</SkillItem>
@@ -189,7 +234,9 @@ const IntroduceMyself: React.FC = () => {
             </SkillCategory>
 
             <SkillCategory>
-              <CategoryTag>Co-working 및 Tools</CategoryTag>
+              <CategoryTag>
+                <span className="emphasized">Co-working 및 Tools:</span>
+              </CategoryTag>
               <SkillItem>VS Code</SkillItem>
               <SkillItem>Git</SkillItem>
               <SkillItem>Github</SkillItem>
@@ -209,7 +256,10 @@ const IntroduceMyself: React.FC = () => {
               </EducationContent>
               <EducationDate>(2023.08 ~ 2023.09)</EducationDate>
             </EducationItem>
-            • 설명 1
+            <Description>설명 1</Description>
+            <Description>설명 2</Description>
+            <Description>설명 3</Description>
+            <Description>설명 4</Description>
           </Education>
         </Section>
       </ContentWrapper>
