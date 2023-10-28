@@ -22,6 +22,11 @@ const ContentWrapper = styled.div`
   @media (max-width: 1200px) {
     padding: 20px 10px;
   }
+
+  /* 반응형 미디어 쿼리 적용 */
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const PersonalInfo = styled.div`
@@ -40,6 +45,18 @@ const PersonalInfo = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  /* 반응형 미디어 쿼리 적용 */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
   }
 `;
 
@@ -77,6 +94,11 @@ const Section = styled.div`
       height: 2px;
       background-color: ${props => props.theme.secondaryText};
     }
+
+    /* 반응형 미디어 쿼리 적용 */
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -88,9 +110,15 @@ const Skill = styled.div`
 
 const SkillCategory = styled.div`
   display: flex;
-  align-items: center;
+  align-items: center; // 가로 배치 상태에서 아이템들을 중앙으로 정렬
   gap: 10px;
   margin-bottom: 10px;
+
+  /* 반응형 미디어 쿼리 적용 */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center; // 세로 배치 상태에서 아이템들을 중앙으로 정렬
+  }
 `;
 
 const CategoryTag = styled.span`
@@ -103,6 +131,11 @@ const CategoryTag = styled.span`
   span.emphasized {
     color: ${props => props.theme.emphasisColor};
   }
+
+  /* 반응형 미디어 쿼리 적용 */
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const SkillItem = styled.span`
@@ -111,6 +144,11 @@ const SkillItem = styled.span`
   border-radius: 5px;
   margin-right: 10px;
   display: inline-block;
+
+  /* 반응형 미디어 쿼리 적용 */
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const Education = styled.div`

@@ -137,7 +137,7 @@ const Navbar: React.FC = () => {
 
       {isDropdownOpen && (
         <DropdownMenu isOpen={isDropdownOpen}>
-          <Link to="/">이유승 포트폴리오</Link>
+          <Link to="/">홈</Link>
           <Link to="/introducemyself">자기소개</Link>
           <Link to="/myportfolio">포트폴리오</Link>
           <a
@@ -157,7 +157,7 @@ const Navbar: React.FC = () => {
         </DropdownMenu>
       )}
       <NavLinks className="desktopNav">
-        <Link to="/">이유승 포트폴리오</Link>
+        <Link to="/">홈</Link>
         <Link to="/introducemyself">자기소개</Link>
         <Link to="/myportfolio">포트폴리오</Link>
         <a
