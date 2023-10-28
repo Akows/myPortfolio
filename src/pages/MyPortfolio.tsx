@@ -231,6 +231,8 @@ const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-height: 80vh; // 전체 뷰포트 높이의 80%를 넘지 않게 설정합니다.
+  overflow-y: auto; // 내용이 높이를 초과할 경우 스크롤을 추가합니다.
 `;
 
 const LinksWrapper = styled.div`
@@ -298,6 +300,16 @@ const MyPortfolio: React.FC = () => {
     },
   ];
 
+  const openModal = (idx: number) => {
+    setShowModal(idx);
+    document.body.classList.add('no-scroll');
+  };
+
+  const closeModal = () => {
+    setShowModal(null);
+    document.body.classList.remove('no-scroll');
+  };
+
   return (
     <PortfolioWrapper>
       <BannerWrapper />
@@ -339,7 +351,7 @@ const MyPortfolio: React.FC = () => {
                 {project.features.map(feature => (
                   <p key={feature}>• {feature}</p>
                 ))}
-                <button onClick={() => setShowModal(idx)}>상세보기</button>
+                <button onClick={() => openModal(idx)}>상세보기</button>
               </Description>
             </PortfolioItem>
           </div>
@@ -379,7 +391,7 @@ const MyPortfolio: React.FC = () => {
                 <p key={feature}>• {feature}</p>
               ))}
               {/* 프로젝트의 추가적인 상세 구현 기능을 여기에 나열하세요. */}
-              <FullWidthButton onClick={() => setShowModal(null)}>
+              <FullWidthButton onClick={() => closeModal()}>
                 닫기
               </FullWidthButton>
             </ModalContent>

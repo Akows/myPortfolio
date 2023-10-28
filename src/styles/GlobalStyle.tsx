@@ -20,6 +20,13 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'DNFBitBitv2', sans-serif;
   }
 
+  /* 모달 UI 출력시 페이지의 스크롤이 동작하지 않도록 하는 */
+  body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
   /* 스크롤바 스타일 설정 */
   ::-webkit-scrollbar {
     width: 8px; /* 스크롤바의 너비 */
@@ -37,8 +44,6 @@ const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-track {
     background-color: #f1f1f1; /* 스크롤바 배경 색상 */
   }
-
-
 `;
 
 export default GlobalStyles;
