@@ -3,6 +3,16 @@ import styled from 'styled-components';
 
 import PortImg from '../images/pexels-ann-h-14936128.jpg';
 
+import PrjImg1 from '../images/project/image.png';
+import PrjImg2 from '../images/project/image (2).png';
+import PrjImg3 from '../images/project/image (3).png';
+import PrjImg4 from '../images/project/image (4).png';
+
+import PrjIcon1 from '../images/project/logo-1-96x93.png';
+import PrjIcon2 from '../images/project/Element_Pyro.svg';
+import PrjIcon3 from '../images/project/favicon.ico';
+import PrjIcon4 from '../images/project/free-icon-g-3522346.png';
+
 interface ModalBackgroundProps {
   show: boolean;
 }
@@ -14,6 +24,7 @@ interface Project {
   techs: string[];
   features: string[];
   icon: string; // 아이콘의 URL 경로
+  image: string; // 프로젝트 이미지의 URL 경로
 }
 
 const PortfolioWrapper = styled.div`
@@ -28,13 +39,13 @@ const PortfolioWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 75%;
   width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; // 이 부분을 다시 추가해주세요
+  align-items: center;
 
   @media (max-width: 1200px) {
     padding: 20px 10px;
@@ -42,7 +53,7 @@ const ContentWrapper = styled.div`
 `;
 
 const BannerWrapper = styled.div`
-  width: 75%; // 전체 페이지의 85%로 변경
+  width: 85%;
   height: 300px;
   background: url(${PortImg}) no-repeat center/cover;
   margin-bottom: 40px;
@@ -50,14 +61,14 @@ const BannerWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  &::before {
+  /* &::before {
     // Portfolio 글자 추가
     content: 'Portfolio |';
     font-size: 48px;
     color: ${props => props.theme.primaryText};
     position: absolute; // 글자가 이미지 위에 위치하도록 설정
     z-index: 1;
-  }
+  } */
 `;
 
 const PortfolioItem = styled.div`
@@ -83,14 +94,20 @@ const PortfolioItem = styled.div`
       background-color: ${props => props.theme.secondaryText};
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* 상하배치 */
+    align-items: center; /* 가운데 정렬 */
+    gap: 20px; /* 간격을 조절하여 상하 간격을 주었습니다. */
+  }
 `;
 
 const Thumbnail = styled.div`
   position: relative;
-  width: 625px; // 250px의 2.5배
-  height: 450px;
-  background: url('thumbnail.jpg') center/cover no-repeat;
+  width: 500px;
+  height: 350px;
   border-radius: 25px;
+  flex: 1;
 
   &:hover:before {
     content: '넘어가기';
@@ -107,13 +124,18 @@ const Thumbnail = styled.div`
     transition: background-color 0.3s ease;
     border-radius: 25px;
   }
+
+  @media (max-width: 768px) {
+    width: 100%; /* 이미지의 가로 길이를 최대로 설정 */
+    max-width: 100%; /* 이미지의 최대 가로 길이를 제한 (필요한 경우) */
+  }
 `;
 
 const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 2;
+  flex: 1.5;
 
   & > h2 {
     position: relative;
@@ -153,6 +175,21 @@ const Description = styled.div`
         color 0.3s ease; // 추가
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%; // 전체 폭을 차지하도록 설정
+    padding: 0 20px; // 좌우 패딩 추가로 내부 요소들이 좌우로 조금 더 넓게 표시되게 함
+
+    & > h2 {
+      padding-left: 45px; // 아이콘 크기를 고려하여 패딩 값을 조절
+    }
+
+    & > button {
+      flex: 1.8; // 이미 기존에 존재하던 스타일이므로 주석만 제거
+      width: 100%; // 버튼의 가로 길이를 최대로 설정
+      max-width: 100%; // 버튼의 최대 가로 길이를 제한 (필요한 경우)
+    }
+  }
 `;
 
 const ModalBackground = styled.div<ModalBackgroundProps>`
@@ -190,6 +227,34 @@ const Modal = styled.div`
   }
 `;
 
+const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const LinksWrapper = styled.div`
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+`;
+
+const FullWidthButton = styled.button`
+  width: 100%;
+  padding: 15px 0;
+  border-radius: 5px;
+  background-color: ${props => props.theme.primaryText};
+  color: ${props => props.theme.primaryBackground};
+  cursor: pointer;
+  font-size: 18px;
+
+  &:hover {
+    background-color: ${props => props.theme.primaryBackground};
+    color: ${props => props.theme.primaryText};
+    border: 1px solid ${props => props.theme.primaryText};
+  }
+`;
+
 const CloseButton = styled.button`
   background-color: transparent;
   border: none;
@@ -214,7 +279,8 @@ const MyPortfolio: React.FC = () => {
       date: '2023/03/01 ~ 2023/04/01',
       techs: ['React', 'JavaScript'],
       features: ['구현 기능 1-1', '구현 기능 1-2', '구현 기능 1-3'],
-      icon: '',
+      icon: `${PrjIcon1}`,
+      image: `${PrjImg1}`, // 추가된 이미지 경로
     },
     {
       id: 2,
@@ -222,7 +288,8 @@ const MyPortfolio: React.FC = () => {
       date: '2023/04/02 ~ 2023/05/02',
       techs: ['React', 'TypeScript'],
       features: ['구현 기능 2-1', '구현 기능 2-2'],
-      icon: '',
+      icon: `${PrjIcon2}`,
+      image: `${PrjImg2}`,
     },
     {
       id: 3,
@@ -230,9 +297,18 @@ const MyPortfolio: React.FC = () => {
       date: '2023/04/02 ~ 2023/05/02',
       techs: ['React'],
       features: ['구현 기능 3-1'],
-      icon: '',
+      icon: `${PrjIcon3}`,
+      image: `${PrjImg3}`,
     },
-    // ... 여기에 추가 프로젝트 정보를 계속 입력.
+    {
+      id: 4,
+      title: '프로젝트 제목 4',
+      date: '2023/04/02 ~ 2023/05/02',
+      techs: ['React'],
+      features: ['구현 기능 4-1'],
+      icon: `${PrjIcon4}`,
+      image: `${PrjImg4}`,
+    },
   ];
 
   return (
@@ -241,20 +317,30 @@ const MyPortfolio: React.FC = () => {
       <ContentWrapper>
         {projectList.map((project, idx) => (
           <div key={idx}>
-            {' '}
-            {/* 이 div를 추가하여 PortfolioItem와 제목을 그룹화 */}
             <h2
               style={{
                 backgroundImage: `url(${project.icon})`,
                 backgroundPosition: 'left center',
                 backgroundRepeat: 'no-repeat',
-                backgroundSize: '24px 24px',
+                backgroundSize: '35px 35px',
+                paddingLeft: '40px',
               }}
             >
               {project.title}
             </h2>
             <PortfolioItem>
-              <Thumbnail>프로젝트 사진</Thumbnail>
+              <Thumbnail>
+                <img
+                  src={project.image}
+                  alt="프로젝트 썸네일"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '25px',
+                    objectFit: 'cover',
+                  }}
+                />
+              </Thumbnail>
               <Description>
                 <p>{project.date}</p>
                 <div className="tech-stack">
@@ -273,22 +359,43 @@ const MyPortfolio: React.FC = () => {
         ))}
       </ContentWrapper>
 
-      {/* 프로젝트 설명 모달창 UI */}
       {projectList.map((project, idx) => (
         <ModalBackground key={idx} show={showModal === idx}>
           <Modal>
-            <h2>{project.title}</h2>
-            <img src="image.jpg" alt="프로젝트 사진" />
-            <div className="tech-stack">
-              {project.techs.map(tech => (
-                <span key={tech}>{tech}</span>
+            <ModalContent>
+              <h2>{project.title}</h2>
+              <img
+                src={project.image}
+                alt="프로젝트 사진"
+                style={{
+                  width: '100%',
+                  borderRadius: '5px',
+                  objectFit: 'cover',
+                }}
+              />
+              <div className="tech-stack">
+                {project.techs.map(tech => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+              <LinksWrapper>
+                <a href="github-link">GitHub</a>
+                <a href="deployed-link">Deploy</a>
+                <a href="intro-page-link">Introduce Link</a>
+              </LinksWrapper>
+              <h3>프로젝트 소개</h3>
+              <p>
+                이 프로젝트는 ... (프로젝트에 대한 설명을 여기에 추가하세요.)
+              </p>
+              <h3>구현 기능</h3>
+              {project.features.map(feature => (
+                <p key={feature}>• {feature}</p>
               ))}
-            </div>
-            <a href="github-link">GitHub</a>
-            <a href="deployed-link">Deploy</a>
-            <a href="intro-page-link">Introduce Link</a>
-            <p>이런 저런 구현을 했습니다..</p>
-            <CloseButton onClick={() => setShowModal(null)}>닫기</CloseButton>
+              {/* 프로젝트의 추가적인 상세 구현 기능을 여기에 나열하세요. */}
+              <FullWidthButton onClick={() => setShowModal(null)}>
+                닫기
+              </FullWidthButton>
+            </ModalContent>
           </Modal>
         </ModalBackground>
       ))}
