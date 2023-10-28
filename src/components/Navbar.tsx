@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../redux/reducer';
 import { RootState } from '../redux/store';
@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 
 type ToggleButtonProps = {
   currentTheme: 'white' | 'black';
+};
+
+type DropdownProps = {
+  isOpen: boolean;
 };
 
 const NavbarWrapper = styled.div`
@@ -28,6 +32,10 @@ const NavbarWrapper = styled.div`
   // 반응형 대응
   @media (max-width: 768px) {
     height: 50px; // 모바일 화면에서의 높이 조절 예시
+
+    .desktopNav {
+      display: none;
+    }
   }
 `;
 
@@ -69,16 +77,103 @@ const ToggleButton = styled.button<ToggleButtonProps>`
   }
 `;
 
+const HamburgerMenu = styled.div`
+  display: none; // 기본적으로 숨김
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+
+  div {
+    width: 25px;
+    height: 3px;
+    background-color: ${props => props.theme.primaryText};
+  }
+
+  @media (max-width: 768px) {
+    display: flex; // 모바일에서만 표시
+  }
+`;
+
+const DropdownMenu = styled.div<DropdownProps>`
+  position: absolute;
+  top: 100%; // HamburgerMenu 바로 아래 위치
+  left: 0; // 왼쪽 정렬
+  background-color: ${props => props.theme.primaryBackground};
+  border: 1px solid ${props => props.theme.primaryText};
+  z-index: 999;
+
+  // 애니메이션 추가
+  transform: ${props =>
+    props.isOpen
+      ? 'translateY(0)'
+      : 'translateY(-10px)'}; // 위에서 아래로 페이드되면서 나타남
+  opacity: ${props => (props.isOpen ? 1 : 0)};
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease; // 위치와 투명도 두 가지 효과에 애니메이션 적용
+
+  a {
+    display: block;
+    padding: 10px 15px;
+    color: ${props => props.theme.primaryText};
+    &:hover {
+      background-color: ${props => props.theme.secondaryBackground};
+    }
+  }
+`;
+
 const Navbar: React.FC = () => {
   const dispatch = useDispatch();
   const currentTheme = useSelector((state: RootState) => state.theme.value);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <NavbarWrapper>
-      <NavLinks>
+      <HamburgerMenu onClick={() => setDropdownOpen(!isDropdownOpen)}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </HamburgerMenu>
+
+      {isDropdownOpen && (
+        <DropdownMenu isOpen={isDropdownOpen}>
+          <Link to="/">이유승 포트폴리오</Link>
+          <Link to="/introducemyself">자기소개</Link>
+          <Link to="/myportfolio">포트폴리오</Link>
+          <a
+            href="https://myblog-350b6.web.app/main"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            개발 블로그
+          </a>
+          <a
+            href="https://github.com/Akows"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+        </DropdownMenu>
+      )}
+      <NavLinks className="desktopNav">
         <Link to="/">이유승 포트폴리오</Link>
         <Link to="/introducemyself">자기소개</Link>
         <Link to="/myportfolio">포트폴리오</Link>
+        <a
+          href="https://velog.io/@skyoffly"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          개발 블로그
+        </a>
+        <a
+          href="https://github.com/Akows"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
       </NavLinks>
 
       <ToggleButton

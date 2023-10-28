@@ -255,19 +255,6 @@ const FullWidthButton = styled.button`
   }
 `;
 
-const CloseButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: ${props => props.theme.primaryText};
-  font-size: 24px;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  position: relative; // 상대 위치로 변경
-  margin-top: 20px; // 모달의 아래 영역에 위치시키기 위해 마진 추가
-`;
-
 const MyPortfolio: React.FC = () => {
   // 몇번 모달창을 출력할 것인지 제어하는 state.
   const [showModal, setShowModal] = useState<number | null>(null);
