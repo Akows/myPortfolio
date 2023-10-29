@@ -32,7 +32,7 @@ const themes = {
     togglebuttoncolor: '#333',
     secondaryBackground: 'rgba(0, 0, 0, 0.8)', // span 태그의 배경색
     hoverBackground: 'rgba(0, 0, 0, 0.6)', // hover 시의 배경색
-    emphasisColor: '#001F3F', // Deep Navy
+    emphasisColor: '#007BFF',
   },
 };
 

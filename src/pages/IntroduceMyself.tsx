@@ -15,7 +15,8 @@ const IntroduceWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
   width: 100%;
   padding: 20px;
 
@@ -163,6 +164,7 @@ const EducationItem = styled.div`
   align-items: center;
   gap: 15px;
   margin-bottom: 10px; // 여백 추가
+  font-size: 24px;
 `;
 
 const EducationContent = styled.span`
@@ -294,10 +296,18 @@ const IntroduceMyself: React.FC = () => {
               </EducationContent>
               <EducationDate>(2023.08 ~ 2023.09)</EducationDate>
             </EducationItem>
-            <Description>설명 1</Description>
-            <Description>설명 2</Description>
-            <Description>설명 3</Description>
-            <Description>설명 4</Description>
+            <Description>
+              4주 동안 기업 과제를 수행하며 기술 역량과 협업 역량 향상을 통해
+              취업에 도전.
+            </Description>
+            <Description>
+              기업이 제공하는 실전 과제를 통해 다양한 사례를 분석하여 학습한
+              이론 및 기술을 적용하고 기술 과제 해결 역량을 향상.
+            </Description>
+            <Description>
+              취업이라는 같은 목표를 지닌 동료들과 함께 팀 프로젝트를 수행하며
+              반면교사, 정면교사 등의 충돌과 교류를 통해 협업 역량을 향상.
+            </Description>
           </Education>
         </Section>
       </ContentWrapper>
