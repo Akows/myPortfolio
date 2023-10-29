@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import PortImg from '../images/pexels-ann-h-14936128.jpg';
 
 import PrjImg1 from '../images/project/image.png';
-import PrjImg2 from '../images/project/image (2).png';
-import PrjImg3 from '../images/project/image (3).png';
-import PrjImg4 from '../images/project/image (4).png';
+import PrjImg2 from '../images/project/image (3).png';
+import PrjImg4 from '../images/project/image (2).png';
+import PrjImg3 from '../images/project/image (4).png';
 
 import PrjIcon1 from '../images/project/logo-1-96x93.png';
 import PrjIcon2 from '../images/project/Element_Pyro.svg';
@@ -23,8 +23,11 @@ interface Project {
   date: string;
   techs: string[];
   features: string[];
-  icon: string; // 아이콘의 URL 경로
-  image: string; // 프로젝트 이미지의 URL 경로
+  githubLink: string;
+  deployLink: string;
+  detailedFeatures: string[];
+  icon: string;
+  image: string;
 }
 
 const PortfolioWrapper = styled.div`
@@ -109,25 +112,32 @@ const Thumbnail = styled.div`
   border-radius: 25px;
   flex: 1;
 
-  &:hover:before {
-    content: '넘어가기';
-    position: absolute;
-    top: 0;
-    left: 0;
+  a {
+    display: block;
+    position: relative;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-    border-radius: 25px;
+
+    &:hover:before {
+      content: '프로젝트 배포 URL로 이동...';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      border-radius: 25px;
+    }
   }
 
   @media (max-width: 768px) {
-    width: 100%; /* 이미지의 가로 길이를 최대로 설정 */
-    max-width: 100%; /* 이미지의 최대 가로 길이를 제한 (필요한 경우) */
+    width: 100%;
+    max-width: 100%;
   }
 `;
 
@@ -150,6 +160,8 @@ const Description = styled.div`
     display: flex;
     gap: 5px;
     margin-bottom: 10px;
+    font-size: 15px;
+    flex-wrap: wrap;
 
     span {
       background-color: grey;
@@ -264,37 +276,72 @@ const MyPortfolio: React.FC = () => {
   const projectList: Project[] = [
     {
       id: 1,
-      title: '프로젝트 제목 1',
-      date: '2023/03/01 ~ 2023/04/01',
-      techs: ['React', 'JavaScript'],
-      features: ['구현 기능 1-1', '구현 기능 1-2', '구현 기능 1-3'],
+      title: 'Genshindex',
+      date: '2023/08/30 ~ 2023/09/04',
+      techs: ['Typescript ', 'React.js', 'Styled Components', 'Vercel'],
+      features: [
+        '외부 API 호출로 데이터를 가져와 적절한 형태로 가공하여 화면에 출력',
+        '무한 스크롤 기능을 통한 API 호출의 최적화',
+        '반응형 웹과 CSS 애니매이션으로 데스크톱 - 모바일 환경의 부드러운 전환',
+      ],
+      githubLink: 'https://github.com/Akows/prj04remake',
+      deployLink: 'https://prj04remake.vercel.app/',
+      detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
       icon: `${PrjIcon1}`,
       image: `${PrjImg1}`, // 추가된 이미지 경로
     },
     {
       id: 2,
-      title: '프로젝트 제목 2',
-      date: '2023/04/02 ~ 2023/05/02',
-      techs: ['React', 'TypeScript'],
-      features: ['구현 기능 2-1', '구현 기능 2-2'],
+      title: 'Pyro Blossom',
+      date: '2023/05/01 ~ 2023/08/11',
+      techs: [
+        'Javascript',
+        'React.js',
+        'Redux',
+        'React-Redux',
+        'Styled Components',
+        'Vercel',
+      ],
+      features: [
+        '회원가입, 로그인-로그아웃, 회원정보 조회 및 수정과 탈퇴',
+        '회원정보 및 상품, 리뷰 데이터의 CRUD 기능',
+        '가상의 제품 등록, 조회, 수정, 삭제, 구매 및 관리',
+      ],
+      githubLink: 'https://github.com/Akows/prj07Pyroblossom',
+      deployLink: 'https://prj07pyroblossom.web.app/store',
+      detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
       icon: `${PrjIcon2}`,
       image: `${PrjImg2}`,
     },
     {
       id: 3,
-      title: '프로젝트 제목 3',
-      date: '2023/04/02 ~ 2023/05/02',
-      techs: ['React'],
-      features: ['구현 기능 3-1'],
+      title: 'MyBlog',
+      date: '2023/01/03 ~ 2023/03/22',
+      techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
+      features: [
+        '사용자 인증, 회원가입, 로그인-로그아웃',
+        '회원 데이터 및 블로그 포스트와 댓글에 대한 CRUD 기능',
+        '게시물의 정렬 및 검색',
+      ],
+      githubLink: 'https://github.com/Akows/prj06myBlog',
+      deployLink: 'https://myblog-350b6.web.app/main',
+      detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
       icon: `${PrjIcon3}`,
       image: `${PrjImg3}`,
     },
     {
       id: 4,
-      title: '프로젝트 제목 4',
-      date: '2023/04/02 ~ 2023/05/02',
-      techs: ['React'],
-      features: ['구현 기능 4-1'],
+      title: 'Genshinimpact Web',
+      date: '2022/11/04 ~ 2022/12/15',
+      techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
+      features: [
+        '간단한 CRUD 기능이 포함된 익명 자유게시판',
+        '순수 Javascript만을 활용한 슬라이드 쇼와 페이지네이션',
+        'slice와 filter 메서드를 활용한 게시글 검색',
+      ],
+      githubLink: 'https://github.com/Akows/prj03RE',
+      deployLink: 'https://prj03deploy.web.app/',
+      detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
       icon: `${PrjIcon4}`,
       image: `${PrjImg4}`,
     },
@@ -315,7 +362,7 @@ const MyPortfolio: React.FC = () => {
       <BannerWrapper />
       <ContentWrapper>
         {projectList.map((project, idx) => (
-          <div key={idx}>
+          <div key={idx} style={{ width: '90%' }}>
             <h2
               style={{
                 backgroundImage: `url(${project.icon})`,
@@ -329,19 +376,27 @@ const MyPortfolio: React.FC = () => {
             </h2>
             <PortfolioItem>
               <Thumbnail>
-                <img
-                  src={project.image}
-                  alt="프로젝트 썸네일"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '25px',
-                    objectFit: 'cover',
-                  }}
-                />
+                <a
+                  href={project.deployLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={project.image}
+                    alt="프로젝트 썸네일"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: '25px',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </a>
               </Thumbnail>
+
               <Description>
                 <p>{project.date}</p>
+                <a href={project.githubLink}>GitHub</a>
                 <div className="tech-stack">
                   {project.techs.map(tech => (
                     <span key={tech}>{tech}</span>
@@ -387,10 +442,9 @@ const MyPortfolio: React.FC = () => {
                 이 프로젝트는 ... (프로젝트에 대한 설명을 여기에 추가하세요.)
               </p>
               <h3>구현 기능</h3>
-              {project.features.map(feature => (
+              {project.detailedFeatures.map(feature => (
                 <p key={feature}>• {feature}</p>
               ))}
-              {/* 프로젝트의 추가적인 상세 구현 기능을 여기에 나열하세요. */}
               <FullWidthButton onClick={() => closeModal()}>
                 닫기
               </FullWidthButton>
