@@ -11,6 +11,7 @@ const PortfolioWrapper = styled.div`
   width: 100%;
   min-height: calc(100vh - 80px);
   padding-top: 80px;
+  padding-bottom: 40px;
   background-color: ${props => props.theme.primaryBackground};
   color: ${props => props.theme.primaryText};
   display: flex;

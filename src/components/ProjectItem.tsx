@@ -7,6 +7,22 @@ interface ProjectItemProps {
   openModal: (idx: number) => void;
 }
 
+const StyledProjectItem = styled.div`
+  width: 90%;
+  margin-bottom: 80px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 const Thumbnail = styled.div`
   position: relative;
   width: 500px;
@@ -108,7 +124,7 @@ const Description = styled.div`
 
 const ProjectItem: React.FC<ProjectItemProps> = ({ project, openModal }) => {
   return (
-    <div style={{ width: '90%' }}>
+    <StyledProjectItem>
       <h2
         style={{
           backgroundImage: `url(${project.icon})`,
@@ -120,7 +136,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, openModal }) => {
       >
         {project.title}
       </h2>
-      <div>
+      <Container>
         <Thumbnail>
           <a
             href={project.deployLink}
@@ -154,8 +170,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, openModal }) => {
           ))}
           <button onClick={() => openModal(project.id)}>상세보기</button>
         </Description>
-      </div>
-    </div>
+      </Container>
+    </StyledProjectItem>
   );
 };
 
