@@ -218,7 +218,7 @@ const EducationDate = styled.span`
 `;
 
 const Description = styled.p`
-  padding-left: 20px;
+  padding-left: 30px;
   position: relative;
   margin-bottom: -5px;
 
@@ -263,7 +263,7 @@ const IntroduceMyself: React.FC = () => {
           <div>
             <h1>이유승 | Lee Yuseung</h1>
 
-            <SubTitle>🍀연락처</SubTitle>
+            <SubTitle>📱연락처</SubTitle>
             <InfoText>
               <span className="emphasized">Phone:_</span>010-3629-3686
             </InfoText>
@@ -271,7 +271,7 @@ const IntroduceMyself: React.FC = () => {
               <span className="emphasized">Email:_</span>akows141@email.com
             </InfoText>
 
-            <SubTitle>🍀Blog & Github</SubTitle>
+            <SubTitle>🖥️Blog & Github</SubTitle>
             <InfoText>
               <span className="emphasized">velog:_</span>
               <a
@@ -320,38 +320,38 @@ const IntroduceMyself: React.FC = () => {
         </Section>
 
         <Section>
-          <h2>⌨️ 기술 스택</h2>
+          <h2>🧮 기술 스택</h2>
           <SkillWrapper>
             <SkillCategoryWrapper>
               <CategoryTag>
-                <span className="emphasized">프로그래밍 언어:</span>
+                <span className="emphasized">#️프로그래밍 스킬:</span>
               </CategoryTag>
-              <SkillItem>HTML</SkillItem>
-              <SkillItem>CSS</SkillItem>
-              <SkillItem>JavaScript</SkillItem>
-              <SkillItem>TypeScript</SkillItem>
+              <SkillItem>1️⃣ HTML</SkillItem>
+              <SkillItem>2️⃣ CSS</SkillItem>
+              <SkillItem>3️⃣ JavaScript</SkillItem>
+              <SkillItem>4️⃣ TypeScript</SkillItem>
             </SkillCategoryWrapper>
 
             <SkillCategoryWrapper>
               <CategoryTag>
-                <span className="emphasized">프론트엔드 스킬:</span>
+                <span className="emphasized">#️프론트엔드 스킬:</span>
               </CategoryTag>
-              <SkillItem>React.js</SkillItem>
-              <SkillItem>Redux</SkillItem>
-              <SkillItem>React-Redux</SkillItem>
-              <SkillItem>Styled Components</SkillItem>
+              <SkillItem>1️⃣ React.js</SkillItem>
+              <SkillItem>2️⃣ Redux</SkillItem>
+              <SkillItem>3️⃣ React-Redux</SkillItem>
+              <SkillItem>4️⃣ Styled Components</SkillItem>
             </SkillCategoryWrapper>
 
             <SkillCategoryWrapper>
               <CategoryTag>
-                <span className="emphasized">Co-working 및 Tools:</span>
+                <span className="emphasized">#️Co-working 및 Tools:</span>
               </CategoryTag>
-              <SkillItem>VS Code</SkillItem>
-              <SkillItem>Git</SkillItem>
-              <SkillItem>Github</SkillItem>
-              <SkillItem>Sourcetree</SkillItem>
-              <SkillItem>Firebase</SkillItem>
-              <SkillItem>Vercel</SkillItem>
+              <SkillItem>1️⃣ VS Code</SkillItem>
+              <SkillItem>2️⃣ Git</SkillItem>
+              <SkillItem>3️⃣ Github</SkillItem>
+              <SkillItem>4️⃣ Sourcetree</SkillItem>
+              <SkillItem>5️⃣ Firebase</SkillItem>
+              <SkillItem>6️⃣ Vercel</SkillItem>
             </SkillCategoryWrapper>
           </SkillWrapper>
         </Section>

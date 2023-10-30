@@ -9,11 +9,7 @@ interface ProjectModalProps {
   currentTheme: 'white' | 'black';
 }
 
-interface ModalBackgroundProps {
-  show: boolean;
-}
-
-const ModalBackground = styled.div<ModalBackgroundProps>`
+const ModalBackground = styled.div<ProjectModalProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -27,12 +23,16 @@ const ModalBackground = styled.div<ModalBackgroundProps>`
 `;
 
 const Modal = styled.div`
+  display: flex; // Flexbox 적용
+  flex-direction: column; // 세로 방향으로 아이템 배치
   width: 80%;
   max-width: 800px;
+  height: 90%;
   background-color: ${props => props.theme.primaryBackground};
   color: ${props => props.theme.primaryText};
   padding: 20px;
   border-radius: 5px;
+  align-items: center; // 가운데 정렬
 
   h2 {
     margin-top: 0;
@@ -48,12 +48,35 @@ const Modal = styled.div`
   }
 `;
 
+const ModalHeader = styled.div`
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+
+  & > p {
+    margin: 0;
+    font-size: 35px;
+    font-weight: bolder;
+  }
+`;
+
+const ModalFooter = styled.div`
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+`;
+
 const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
   max-height: 80vh;
   overflow-y: auto;
+
+  padding-top: 20px; // h2의 높이를 고려하여 패딩 추가
+  padding-bottom: 20px; // FullWidthButton의 높이를 고려하여 패딩 추가
 
   h2 {
     margin-top: 10px;
@@ -144,7 +167,6 @@ const FullWidthButton = styled.button`
   &:hover {
     background-color: ${props => props.theme.primaryBackground};
     color: ${props => props.theme.primaryText};
-    border: 1px solid ${props => props.theme.primaryText};
   }
 `;
 
@@ -155,10 +177,27 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
   currentTheme,
 }) => {
   return (
-    <ModalBackground show={show}>
+    <ModalBackground
+      show={show}
+      project={project}
+      closeModal={closeModal}
+      currentTheme={currentTheme}
+    >
       <Modal>
+        <ModalHeader>
+          <p
+            style={{
+              backgroundImage: `url(${project.icon})`,
+              backgroundPosition: 'left center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '35px 35px',
+              paddingLeft: '40px',
+            }}
+          >
+            {project.title}
+          </p>
+        </ModalHeader>
         <ModalContent>
-          <h2>{project.title}</h2>
           <img
             src={project.image}
             alt="프로젝트 사진"
@@ -169,7 +208,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
             }}
           />
           <h2>구현 기간</h2>
-          <p>{project.date}</p>
+          <p>🕚 {project.date}</p>
           <div className="section-divider" />
 
           <h2>Link</h2>
@@ -180,17 +219,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              {project.githubLink}
+              🔗 {project.githubLink}
             </a>
             <h4>배포링크</h4>
-            <a href={project.deployLink}>{project.deployLink}</a>
+            <a href={project.deployLink}>🔗 {project.deployLink}</a>
           </LinksWrapper>
           <div className="section-divider" />
 
           <h2>사용 기술</h2>
           <TechStack>
             {project.techs.map(tech => (
-              <span key={tech}>{tech}</span>
+              <span key={tech}>🛠 {tech}</span>
             ))}
           </TechStack>
           <div className="section-divider" />
@@ -206,8 +245,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
               ))}
             </div>
           ))}
-          <FullWidthButton onClick={closeModal}>닫기</FullWidthButton>
         </ModalContent>
+        <ModalFooter>
+          <FullWidthButton onClick={closeModal}>닫기</FullWidthButton>
+        </ModalFooter>
       </Modal>
     </ModalBackground>
   );

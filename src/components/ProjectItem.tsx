@@ -179,7 +179,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           backgroundRepeat: 'no-repeat',
           backgroundSize: '35px 35px',
           paddingLeft: '40px',
-          fontSize: '26px',
+          fontSize: '32px',
         }}
       >
         {project.title}
@@ -206,7 +206,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 
         <Description themeName={currentTheme}>
           <h3>구현기간</h3>
-          <DateText>{project.date}</DateText>
+          <DateText>⏰ {project.date}</DateText>
           <Divider />
           <GitLink
             href={project.githubLink}
@@ -221,7 +221,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           <Divider />
           <div className="tech-stack">
             {project.techs.map(tech => (
-              <span key={tech}>{tech}</span>
+              <span key={tech}>🛠 {tech}</span>
             ))}
           </div>
           <Divider />
@@ -230,7 +230,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
             <p key={feature}>• {feature}</p>
           ))}
           <Divider />
-          <button onClick={() => openModal(project.id)}>상세보기</button>
+          <button onClick={() => openModal(project.id)}>📑 상세보기</button>
         </Description>
       </Container>
     </StyledProjectItem>
