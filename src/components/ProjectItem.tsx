@@ -31,7 +31,7 @@ const Container = styled.div`
 const Thumbnail = styled.div`
   position: relative;
   width: 500px;
-  height: 450px;
+  height: 550px;
   border-radius: 25px;
   flex: 1;
 
@@ -64,7 +64,7 @@ const Thumbnail = styled.div`
   }
 `;
 
-const Description = styled.div`
+const Description = styled.div<{ themeName: 'white' | 'black' }>`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -75,6 +75,13 @@ const Description = styled.div`
     padding-left: 40px; // 아이콘 크기를 고려하여 패딩 값을 조절
   }
 
+  & > h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: -10px;
+    margin-top: 0px;
+  }
+
   & > p {
     margin-bottom: 3px; // 기존의 마진을 줄임
   }
@@ -82,7 +89,7 @@ const Description = styled.div`
   .tech-stack {
     display: flex;
     gap: 5px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     font-size: 15px;
     flex-wrap: wrap;
 
@@ -91,6 +98,9 @@ const Description = styled.div`
       color: black;
       padding: 5px 10px;
       border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      color: ${props => (props.themeName === 'white' ? 'black' : 'white')};
     }
   }
 
@@ -127,6 +137,18 @@ const Description = styled.div`
   }
 `;
 
+const DateText = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+`;
+
+const GitLink = styled.a`
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+`;
+
 const GitIcon = styled.img`
   width: 50px;
   height: 50px;
@@ -135,6 +157,12 @@ const GitIcon = styled.img`
   &:hover {
     filter: brightness(0.8);
   }
+`;
+
+const Divider = styled.div`
+  height: 1px; // 선의 높이
+  background-color: grey; // 선의 색상
+  margin: 10px 0; // 상하 여백
 `;
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
@@ -151,6 +179,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           backgroundRepeat: 'no-repeat',
           backgroundSize: '35px 35px',
           paddingLeft: '40px',
+          fontSize: '26px',
         }}
       >
         {project.title}
@@ -175,9 +204,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           </a>
         </Thumbnail>
 
-        <Description>
-          <p>{project.date}</p>
-          <a
+        <Description themeName={currentTheme}>
+          <h3>구현기간</h3>
+          <DateText>{project.date}</DateText>
+          <Divider />
+          <GitLink
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -186,16 +217,19 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               src={currentTheme === 'white' ? gitIconBlack : gitIconWhite}
               alt="GitHub Link"
             />
-          </a>
+          </GitLink>
+          <Divider />
           <div className="tech-stack">
             {project.techs.map(tech => (
               <span key={tech}>{tech}</span>
             ))}
           </div>
-          <p>구현기능</p>
+          <Divider />
+          <h3>구현기능</h3>
           {project.features.map(feature => (
             <p key={feature}>• {feature}</p>
           ))}
+          <Divider />
           <button onClick={() => openModal(project.id)}>상세보기</button>
         </Description>
       </Container>

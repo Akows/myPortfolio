@@ -56,13 +56,41 @@ const ModalContent = styled.div`
   overflow-y: auto;
 
   h2 {
-    margin-bottom: -10px; // h2의 하단 마진 감소
+    margin-top: 10px;
+    margin-bottom: -15px; // h2의 하단 마진 감소
+  }
+
+  p {
+    font-size: 15px; // 글자 크기 증가
+    font-weight: bold; // 굵게
   }
 
   .section-divider {
     height: 1px;
     background-color: #ccc; // 파트 구분을 위한 줄 색상
     margin: 15px 0; // 줄의 위아래 마진을 설정
+  }
+
+  div > h4 {
+    margin-top: 3px;
+    margin-bottom: 5px; // 간격 줄임
+    font-size: 17px; // 글자 크기 증가
+    font-weight: 600; // 가벼운 볼드 스타일
+  }
+
+  div > div > p {
+    /* 구현 기능 본문의 p 태그 */
+    padding-left: 20px; // 점 문자를 위한 공간 확보
+    position: relative;
+
+    &::before {
+      content: '•'; // 점 문자
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%); // 세로 중앙 정렬
+      font-size: 20px;
+    }
   }
 `;
 
@@ -71,20 +99,36 @@ const LinksWrapper = styled.div`
   flex-direction: column;
   gap: 15px;
   margin: 20px 0;
+
+  h4 {
+    margin-bottom: 3px; // 간격 줄임
+  }
+
+  a {
+    font-weight: bold; // 굵게
+    transition: color 0.3s; // 부드러운 색상 전환 효과
+    font-size: 16px;
+
+    &:hover {
+      color: grey; // 마우스 호버시 회색으로 변경
+    }
+  }
 `;
 
 const TechStack = styled.div`
   display: flex;
   gap: 5px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   font-size: 15px;
   flex-wrap: wrap;
 
   span {
     background-color: grey;
-    color: black;
+    color: white;
     padding: 5px 10px;
     border-radius: 5px;
+    font-size: 16px; // 글자 크기 증가
+    font-weight: bold; // 굵게
   }
 `;
 
