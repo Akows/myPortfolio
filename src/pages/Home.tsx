@@ -71,6 +71,10 @@ const Introduction = styled.div`
   line-height: 1.5;
 
   animation: ${fadeFromLeft} 2s forwards; // 좌측에서 우측으로 투명한 상태에서 뚜렷해지는 애니메이션 적용
+
+  span.emphasized {
+    color: ${props => props.theme.emphasisColor};
+  }
 `;
 
 const LargeText = styled.p`
@@ -90,6 +94,18 @@ const BorderedBox = styled.div`
   span.emphasized {
     color: ${props => props.theme.emphasisColor};
   }
+`;
+
+const AboutMe = styled.h2`
+  text-align: left;
+  margin: 30px 0 10px; // spacing을 주어 Introduction과 ButtonWrapper 사이에 위치하게 함
+  font-size: 18px; // 글자 크기 조절
+`;
+
+const HorizontalLine = styled.hr`
+  width: 100%; // 가로 크기
+  border: 0.5px solid ${props => props.theme.primaryText};
+  margin-bottom: 30px; // ButtonWrapper와의 간격 설정
 `;
 
 const ButtonWrapper = styled.div`
@@ -196,7 +212,8 @@ const Home: React.FC = () => {
       <ContentWrapper>
         <Banner />
         <Introduction>
-          Hello! I'm Yuseung Lee, a front-end developer.
+          Hello! I'm <span className="emphasized">Yuseung Lee</span>, a
+          front-end developer.
           <LargeText>
             안녕하세요! 프론트엔드 개발자,
             <span className="emphasized"> 이유승</span>입니다.
@@ -204,7 +221,7 @@ const Home: React.FC = () => {
           <BorderedBox>
             <p>저는..</p>
             <p>
-              현재에 안주하지 않고
+              🤔 현재에 안주하지 않고
               <span className="emphasized">
                 _함께 성장하기 위해 끊임없이 공부_
               </span>
@@ -212,12 +229,12 @@ const Home: React.FC = () => {
             </p>
             <p>
               <span className="emphasized">
-                상대방의 니즈에 공감하는 개발자_
+                💻 상대방의 니즈에 공감하는 개발자_
               </span>
               가 되기 위해 소프트 스킬을 키워나갑니다.
             </p>
             <p>
-              습득한
+              📝 습득한
               <span className="emphasized">
                 _지식을 기록하고 공유하는 개발자_
               </span>
@@ -225,6 +242,8 @@ const Home: React.FC = () => {
             </p>
           </BorderedBox>
         </Introduction>
+        <AboutMe>❖ About Me</AboutMe>
+        <HorizontalLine />
         <ButtonWrapper>
           <StyledButton to="/introducemyself" backImage={MyImg}>
             <span>이력서</span>
