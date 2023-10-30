@@ -246,8 +246,8 @@ const Home: React.FC = () => {
         <HorizontalLine />
         <ButtonWrapper>
           <StyledButton to="/introducemyself" backImage={MyImg}>
-            <span>이력서</span>
-            <span>저의 이력서입니다.</span>
+            <span>자기소개</span>
+            <span>저의 자기소개입니다.</span>
           </StyledButton>
           <StyledButton to="/myportfolio" backImage={PortImg}>
             <span>포트폴리오</span>
