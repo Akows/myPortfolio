@@ -61,17 +61,21 @@ const MyPortfolio: React.FC = () => {
     <PortfolioWrapper>
       <BannerWrapper />
       <ContentWrapper>
-        {projectList.map((project, idx) => (
-          <ProjectItem key={idx} project={project} openModal={openModal} />
+        {projectList.map(project => (
+          <ProjectItem
+            key={project.id}
+            project={project}
+            openModal={openModal}
+          />
         ))}
       </ContentWrapper>
 
-      {projectList.map((project, idx) => (
+      {projectList.map(project => (
         <ProjectModal
-          key={idx}
+          key={project.id}
           project={project}
           closeModal={closeModal}
-          show={showModal === idx}
+          show={showModal === project.id}
         />
       ))}
     </PortfolioWrapper>

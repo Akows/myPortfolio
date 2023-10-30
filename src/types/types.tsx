@@ -9,4 +9,8 @@ export interface Project {
   detailedFeatures: string[];
   icon: string;
   image: string;
+  detailedDescriptions: {
+    title: string;
+    contents: { subTitle: string; description: string }[];
+  }[];
 }

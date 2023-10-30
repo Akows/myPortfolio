@@ -25,7 +25,31 @@ export const projectList: Project[] = [
     deployLink: 'https://prj04remake.vercel.app/',
     detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
     icon: `${PrjIcon1}`,
-    image: `${PrjImg1}`, // 추가된 이미지 경로
+    image: `${PrjImg1}`,
+    detailedDescriptions: [
+      {
+        title: '대제목 1',
+        contents: [
+          {
+            subTitle: '소제목 1.1',
+            description: '소제목 1.1에 대한 설명 내용입니다.',
+          },
+          {
+            subTitle: '소제목 1.2',
+            description: '소제목 1.2에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+      {
+        title: '대제목 2',
+        contents: [
+          {
+            subTitle: '소제목 2.1',
+            description: '소제목 2.1에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -49,6 +73,30 @@ export const projectList: Project[] = [
     detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
     icon: `${PrjIcon2}`,
     image: `${PrjImg2}`,
+    detailedDescriptions: [
+      {
+        title: '대제목 1',
+        contents: [
+          {
+            subTitle: '소제목 1.1',
+            description: '소제목 1.1에 대한 설명 내용입니다.',
+          },
+          {
+            subTitle: '소제목 1.2',
+            description: '소제목 1.2에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+      {
+        title: '대제목 2',
+        contents: [
+          {
+            subTitle: '소제목 2.1',
+            description: '소제목 2.1에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 3,
@@ -65,6 +113,30 @@ export const projectList: Project[] = [
     detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
     icon: `${PrjIcon3}`,
     image: `${PrjImg3}`,
+    detailedDescriptions: [
+      {
+        title: '대제목 1',
+        contents: [
+          {
+            subTitle: '소제목 1.1',
+            description: '소제목 1.1에 대한 설명 내용입니다.',
+          },
+          {
+            subTitle: '소제목 1.2',
+            description: '소제목 1.2에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+      {
+        title: '대제목 2',
+        contents: [
+          {
+            subTitle: '소제목 2.1',
+            description: '소제목 2.1에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 4,
@@ -81,5 +153,29 @@ export const projectList: Project[] = [
     detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
     icon: `${PrjIcon4}`,
     image: `${PrjImg4}`,
+    detailedDescriptions: [
+      {
+        title: '대제목 1',
+        contents: [
+          {
+            subTitle: '소제목 1.1',
+            description: '소제목 1.1에 대한 설명 내용입니다.',
+          },
+          {
+            subTitle: '소제목 1.2',
+            description: '소제목 1.2에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+      {
+        title: '대제목 2',
+        contents: [
+          {
+            subTitle: '소제목 2.1',
+            description: '소제목 2.1에 대한 설명 내용입니다.',
+          },
+        ],
+      },
+    ],
   },
 ];

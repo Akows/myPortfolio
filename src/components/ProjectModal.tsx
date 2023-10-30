@@ -51,14 +51,39 @@ const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-height: 80vh; // 전체 뷰포트 높이의 80%를 넘지 않게 설정합니다.
-  overflow-y: auto; // 내용이 높이를 초과할 경우 스크롤을 추가합니다.
+  max-height: 80vh;
+  overflow-y: auto;
+
+  h2 {
+    margin-bottom: -10px; // h2의 하단 마진 감소
+  }
+
+  .section-divider {
+    height: 1px;
+    background-color: #ccc; // 파트 구분을 위한 줄 색상
+    margin: 15px 0; // 줄의 위아래 마진을 설정
+  }
 `;
 
 const LinksWrapper = styled.div`
   display: flex;
   gap: 15px;
   margin: 20px 0;
+`;
+
+const TechStack = styled.div`
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  flex-wrap: wrap;
+
+  span {
+    background-color: grey;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
 `;
 
 const FullWidthButton = styled.button`
@@ -92,25 +117,40 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
             alt="프로젝트 사진"
             style={{
               width: '100%',
-              borderRadius: '5px',
+              borderRadius: '25px',
               objectFit: 'cover',
             }}
           />
-          <div className="tech-stack">
+          <h2>구현 기간</h2>
+          <p>{project.date}</p>
+          <div className="section-divider" />
+
+          <h2>Link</h2>
+          <LinksWrapper>
+            <a href={project.githubLink}>GitHub</a>
+            <a href={project.deployLink}>Deploy</a>
+          </LinksWrapper>
+          <div className="section-divider" />
+
+          <h2>사용 기술</h2>
+          <TechStack>
             {project.techs.map(tech => (
               <span key={tech}>{tech}</span>
             ))}
-          </div>
-          <LinksWrapper>
-            <a href="github-link">GitHub</a>
-            <a href="deployed-link">Deploy</a>
-            <a href="intro-page-link">Introduce Link</a>
-          </LinksWrapper>
-          <h3>프로젝트 소개</h3>
-          <p>이 프로젝트는 ... (프로젝트에 대한 설명을 여기에 추가하세요.)</p>
-          <h3>구현 기능</h3>
-          {project.detailedFeatures.map(feature => (
-            <p key={feature}>• {feature}</p>
+          </TechStack>
+          <div className="section-divider" />
+
+          <h2>구현 기능</h2>
+          {project.detailedDescriptions.map(detail => (
+            <div key={detail.title}>
+              <h4>{detail.title}</h4>
+              {detail.contents.map(content => (
+                <div key={content.subTitle}>
+                  <h5>{content.subTitle}</h5>
+                  <p>{content.description}</p>
+                </div>
+              ))}
+            </div>
           ))}
           <FullWidthButton onClick={closeModal}>닫기</FullWidthButton>
         </ModalContent>
