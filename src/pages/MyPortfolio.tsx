@@ -19,6 +19,7 @@ const PortfolioWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeInUp 1s forwards;
 `;
 
 const ContentWrapper = styled.div`

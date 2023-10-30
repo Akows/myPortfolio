@@ -12,6 +12,7 @@ const IntroduceWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeInUp 1s forwards;
 `;
 
 const ContentWrapper = styled.div`
@@ -24,7 +25,6 @@ const ContentWrapper = styled.div`
     padding: 20px 10px;
   }
 
-  /* 반응형 미디어 쿼리 적용 */
   @media (max-width: 768px) {
     padding: 10px;
   }

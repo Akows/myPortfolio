@@ -10,14 +10,16 @@ const GlobalStyles = createGlobalStyle`
    src: url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')
   }
 
+  /* 기본 폰트 설정. 'DNFBitBitv2'를 사용하되, 실패할 경우 sans-serif 폰트 사용 */
+  body {
+    /* font-family: 'DNFBitBitv2', sans-serif; */
+
+    /* font-family: sans-serif; */
+  }
+
   /* 항상 스크롤바가 보이도록 설정 */
   html {
     overflow-y: scroll;
-  }
-
-  /* 기본 폰트 설정. 'DNFBitBitv2'를 사용하되, 실패할 경우 sans-serif 폰트 사용 */
-  body {
-    font-family: 'DNFBitBitv2', sans-serif;
   }
 
   /* 모달 UI 출력시 페이지의 스크롤이 동작하지 않도록 하는 */
@@ -43,6 +45,18 @@ const GlobalStyles = createGlobalStyle`
 
   ::-webkit-scrollbar-track {
     background-color: #f1f1f1; /* 스크롤바 배경 색상 */
+  }
+
+  /* fadeInUp 애니매이션 선언 */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
