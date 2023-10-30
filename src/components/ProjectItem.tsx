@@ -94,13 +94,13 @@ const Description = styled.div<{ themeName: 'white' | 'black' }>`
     flex-wrap: wrap;
 
     span {
-      background-color: grey;
-      color: black;
+      color: ${props => props.theme.emphasisColor};
       padding: 5px 10px;
       border-radius: 5px;
       font-size: 18px;
       font-weight: bold;
-      color: ${props => (props.themeName === 'white' ? 'black' : 'white')};
+      border: 1px solid;
+      border-color: ${props => (props.themeName === 'white' ? '#333' : '#aaa')};
     }
   }
 
@@ -145,17 +145,13 @@ const DateText = styled.p`
 
 const GitLink = styled.a`
   display: inline-block;
-  width: 50px;
-  height: 50px;
-`;
+  width: 100%;
+  height: 100%;
 
-const GitIcon = styled.img`
-  width: 50px;
-  height: 50px;
-  transition: 0.3s ease;
+  font-weight: 500;
 
   &:hover {
-    filter: brightness(0.8);
+    color: grey;
   }
 `;
 
@@ -213,10 +209,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <GitIcon
-              src={currentTheme === 'white' ? gitIconBlack : gitIconWhite}
-              alt="GitHub Link"
-            />
+            🔗 {project.githubLink}
           </GitLink>
           <Divider />
           <div className="tech-stack">
