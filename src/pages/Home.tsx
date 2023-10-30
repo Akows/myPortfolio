@@ -50,7 +50,8 @@ const ContentWrapper = styled.div`
   padding: 20px;
 
   @media (max-width: 1200px) {
-    padding: 20px 10px;
+    width: 90%;
+    padding: 20px 15px;
   }
 `;
 
@@ -75,12 +76,20 @@ const Introduction = styled.div`
 const LargeText = styled.p`
   font-size: 2rem; // 큰 글자 크기
   margin: 10px 0; // 상하 마진 추가
+
+  span.emphasized {
+    color: ${props => props.theme.emphasisColor};
+  }
 `;
 
 const BorderedBox = styled.div`
   border: 1px solid ${props => props.theme.primaryText}; // 테두리 적용
   padding: 10px;
   margin-top: 20px;
+
+  span.emphasized {
+    color: ${props => props.theme.emphasisColor};
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -121,18 +130,6 @@ const StyledButton = styled(Link)<StyledButtonProps>`
   background-position: center; // 이미지를 중앙에 배치
   background-repeat: no-repeat; // 이미지 반복 방지
 
-  /* span {
-    width: 100%; // 너비를 100%로 지정하여 부모 컴포넌트의 너비와 동일하게 설정
-    text-align: center; // 텍스트 중앙 정렬
-    background-color: ${props =>
-    props.theme.secondaryBackground}; // 테마 변경과 연동되는 배경색 적용
-    color: ${props => props.theme.primaryText};
-    position: absolute; // span의 위치를 절대 위치로 지정
-    bottom: 0; // span을 부모 컴포넌트의 하단에 배치
-    padding: 10px 0; // 상하 패딩 적용
-    z-index: 2; // z-index를 통해 배경 이미지 위에 배경색이 표시되도록 설정
-  } */
-
   // StyledButton 내부의 span 태그 스타일링
   span {
     width: 100%;
@@ -144,6 +141,8 @@ const StyledButton = styled(Link)<StyledButtonProps>`
     bottom: 0;
     padding: 10px 0;
     z-index: 2;
+
+    font-weight: 800;
 
     // 아래와 같이 투명도를 조금 주면 배경이미지와 조화롭게 표시될 수 있습니다.
     opacity: 0.9;
@@ -157,6 +156,8 @@ const StyledButton = styled(Link)<StyledButtonProps>`
   &:hover {
     /* background-color: rgba(0, 0, 0, 0.6); */
     color: ${props => props.theme.primaryText};
+
+    font-weight: 900;
 
     background-image: linear-gradient(
         ${props => props.theme.hoverBackground},
@@ -196,15 +197,32 @@ const Home: React.FC = () => {
         <Banner />
         <Introduction>
           Hello! I'm Yuseung Lee, a front-end developer.
-          <LargeText>안녕하세요! 프론트엔드 개발자, 이유승입니다.</LargeText>
+          <LargeText>
+            안녕하세요! 프론트엔드 개발자,
+            <span className="emphasized"> 이유승</span>입니다.
+          </LargeText>
           <BorderedBox>
             <p>저는..</p>
-            <p>현재에 안주하지 않고 함께 성장하기 위해 끊임없이 공부합니다.</p>
             <p>
-              상대방의 니즈에 공감하는 개발자가 되기 위해 소프트 스킬을
-              키워나갑니다.
+              현재에 안주하지 않고
+              <span className="emphasized">
+                _함께 성장하기 위해 끊임없이 공부_
+              </span>
+              합니다.
             </p>
-            <p>습득한 지식을 기록하고 공유하는 개발자가 되기를 지향합니다.</p>
+            <p>
+              <span className="emphasized">
+                상대방의 니즈에 공감하는 개발자_
+              </span>
+              가 되기 위해 소프트 스킬을 키워나갑니다.
+            </p>
+            <p>
+              습득한
+              <span className="emphasized">
+                _지식을 기록하고 공유하는 개발자_
+              </span>
+              가 되기를 지향합니다.
+            </p>
           </BorderedBox>
         </Introduction>
         <ButtonWrapper>

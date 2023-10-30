@@ -45,6 +45,8 @@ const NavLinks = styled.div`
 
   a {
     color: ${props => props.theme.primaryText};
+    font-size: 18px; // 폰트 크기 조절
+    font-weight: bold; // 굵기 조절
 
     &:hover {
       color: ${props => props.theme.secondaryText};
@@ -116,6 +118,9 @@ const DropdownMenu = styled.div<DropdownProps>`
     display: block;
     padding: 10px 15px;
     color: ${props => props.theme.primaryText};
+    font-size: 18px; // 폰트 크기 조절
+    font-weight: bold; // 굵기 조절
+
     &:hover {
       background-color: ${props => props.theme.secondaryBackground};
     }
@@ -137,13 +142,20 @@ const Navbar: React.FC = () => {
 
       {isDropdownOpen && (
         <DropdownMenu isOpen={isDropdownOpen}>
-          <Link to="/">홈</Link>
-          <Link to="/introducemyself">자기소개</Link>
-          <Link to="/myportfolio">포트폴리오</Link>
+          <Link to="/" onClick={() => setDropdownOpen(false)}>
+            홈
+          </Link>
+          <Link to="/introducemyself" onClick={() => setDropdownOpen(false)}>
+            자기소개
+          </Link>
+          <Link to="/myportfolio" onClick={() => setDropdownOpen(false)}>
+            포트폴리오
+          </Link>
           <a
             href="https://myblog-350b6.web.app/main"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => setDropdownOpen(false)}
           >
             개발 블로그
           </a>
@@ -151,6 +163,7 @@ const Navbar: React.FC = () => {
             href="https://github.com/Akows"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => setDropdownOpen(false)}
           >
             Github
           </a>

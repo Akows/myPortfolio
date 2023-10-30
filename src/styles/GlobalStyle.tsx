@@ -47,6 +47,12 @@ const GlobalStyles = createGlobalStyle`
     background-color: #f1f1f1; /* 스크롤바 배경 색상 */
   }
 
+  a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 부모 요소의 글자 색상을 상속 */
+    outline: none; /* 포커스 시 생기는 외곽선 제거 */
+  }
+
   /* fadeInUp 애니매이션 선언 */
   @keyframes fadeInUp {
     from {

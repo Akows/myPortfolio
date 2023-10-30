@@ -77,6 +77,14 @@ const InfoText = styled.p`
   span.emphasized {
     color: ${props => props.theme.emphasisColor};
   }
+
+  a {
+    font-weight: bolder;
+
+    &:hover {
+      color: ${props => props.theme.secondaryText};
+    }
+  }
 `;
 
 const Section = styled.div`
@@ -215,24 +223,43 @@ const IntroduceMyself: React.FC = () => {
 
             <SubTitle>연락처</SubTitle>
             <InfoText>
-              <span className="emphasized">Phone:</span> 010-3629-3686
+              <span className="emphasized">Phone:_</span>010-3629-3686
             </InfoText>
             <InfoText>
-              <span className="emphasized">Email:</span> akows141@email.com
+              <span className="emphasized">Email:_</span>akows141@email.com
             </InfoText>
 
             <SubTitle>Blog & Github</SubTitle>
             <InfoText>
-              <span className="emphasized">velog:</span>
-              https://velog.io/@skyoffly
+              <span className="emphasized">velog:_</span>
+              <a
+                href="https://velog.io/@skyoffly"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://velog.io/@skyoffly
+              </a>
             </InfoText>
             <InfoText>
-              <span className="emphasized">myBlog:</span>
-              https://myblog-350b6.web.app/main
+              <span className="emphasized">myBlog:_</span>
+              <a
+                href="https://myblog-350b6.web.app/main"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://myblog-350b6.web.app/main
+              </a>
             </InfoText>
             <InfoText>
-              <span className="emphasized">GitHub:</span>
-              https://github.com/Akows
+              <span className="emphasized">GitHub:_</span>
+
+              <a
+                href="https://github.com/Akows"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://github.com/Akows
+              </a>
             </InfoText>
           </div>
         </PersonalInfo>
