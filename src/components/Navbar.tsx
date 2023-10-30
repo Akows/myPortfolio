@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../redux/reducer';
 import { RootState } from '../redux/store';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { useTheme } from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
 
 type ToggleButtonProps = {
   currentTheme: 'white' | 'black';
@@ -132,6 +132,12 @@ const Navbar: React.FC = () => {
   const currentTheme = useSelector((state: RootState) => state.theme.value);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
+  // 현재 경로를 가져오는 훅
+  const location = useLocation();
+
+  // 현재 테마를 가져옴
+  const theme = useTheme();
+
   return (
     <NavbarWrapper>
       <HamburgerMenu onClick={() => setDropdownOpen(!isDropdownOpen)}>
@@ -170,9 +176,36 @@ const Navbar: React.FC = () => {
         </DropdownMenu>
       )}
       <NavLinks className="desktopNav">
-        <Link to="/">홈</Link>
-        <Link to="/introducemyself">자기소개</Link>
-        <Link to="/myportfolio">포트폴리오</Link>
+        <Link
+          to="/"
+          style={{
+            color: location.pathname === '/' ? theme.emphasisColor : undefined,
+          }}
+        >
+          홈
+        </Link>
+        <Link
+          to="/introducemyself"
+          style={{
+            color:
+              location.pathname === '/introducemyself'
+                ? theme.emphasisColor
+                : undefined,
+          }}
+        >
+          자기소개
+        </Link>
+        <Link
+          to="/myportfolio"
+          style={{
+            color:
+              location.pathname === '/myportfolio'
+                ? theme.emphasisColor
+                : undefined,
+          }}
+        >
+          포트폴리오
+        </Link>
         <a
           href="https://velog.io/@skyoffly"
           target="_blank"
