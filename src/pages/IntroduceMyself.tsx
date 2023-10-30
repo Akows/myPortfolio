@@ -63,8 +63,8 @@ const PersonalInfo = styled.div`
 
 const SubTitle = styled.h3`
   font-size: 20px;
-  margin-bottom: -20px;
   font-weight: bold;
+  margin-bottom: -10px;
   color: ${props => props.theme.emphasisColor}; // 강조 색상으로 변경
 `;
 
@@ -119,14 +119,15 @@ const Skill = styled.div`
 
 const SkillCategory = styled.div`
   display: flex;
-  align-items: center; // 가로 배치 상태에서 아이템들을 중앙으로 정렬
+  flex-direction: column; // 세로 배치
+  align-items: flex-start; // 좌측 정렬
   gap: 10px;
   margin-bottom: 10px;
 
   /* 반응형 미디어 쿼리 적용 */
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center; // 세로 배치 상태에서 아이템들을 중앙으로 정렬
+  @media (min-width: 768px) {
+    flex-direction: row; // 가로 배치
+    align-items: center; // 가로 배치 상태에서 아이템들을 중앙으로 정렬
   }
 `;
 
@@ -153,6 +154,7 @@ const SkillItem = styled.span`
   border-radius: 5px;
   margin-right: 10px;
   display: inline-block;
+  font-weight: bold;
 
   /* 반응형 미디어 쿼리 적용 */
   @media (max-width: 768px) {
@@ -160,55 +162,88 @@ const SkillItem = styled.span`
   }
 `;
 
-const Education = styled.div`
+const EducationWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-const EducationItem = styled.div`
+const LeftContent = styled.div`
+  width: 45%;
+
   display: flex;
-  justify-content: space-between; // 양 끝에 내부 아이템들을 위치시킵니다.
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 10px; // 여백 추가
-  font-size: 24px;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const RightContent = styled.div`
+  width: 55%;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const EducationContent = styled.span`
   font-weight: bold;
-  padding-left: 10px;
+  font-size: 28px;
+  padding-left: 0px;
   position: relative;
-
-  &::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: ${props => props.theme.secondaryText};
-  }
 `;
 
 const EducationDate = styled.span`
   color: ${props => props.theme.primaryText};
-  font-size: 14px;
+  margin-top: 5px;
+  font-size: 18px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const Description = styled.p`
-  padding-left: 10px;
+  padding-left: 20px;
   position: relative;
-  margin-bottom: -10px;
+  margin-bottom: -5px;
 
   &::before {
     content: '•';
     position: absolute;
+    padding-left: 10px;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
     color: ${props => props.theme.secondaryText};
+
+    @media (max-width: 768px) {
+      padding-left: 0px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 10px;
+  }
+`;
+
+const SubSectionTitle = styled.h3`
+  font-size: 20px;
+  padding-left: 10px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    padding-left: 0px;
   }
 `;
 
@@ -221,7 +256,7 @@ const IntroduceMyself: React.FC = () => {
           <div>
             <h1>이유승 | Lee Yuseung</h1>
 
-            <SubTitle>연락처</SubTitle>
+            <SubTitle>🍀연락처</SubTitle>
             <InfoText>
               <span className="emphasized">Phone:_</span>010-3629-3686
             </InfoText>
@@ -229,7 +264,7 @@ const IntroduceMyself: React.FC = () => {
               <span className="emphasized">Email:_</span>akows141@email.com
             </InfoText>
 
-            <SubTitle>Blog & Github</SubTitle>
+            <SubTitle>🍀Blog & Github</SubTitle>
             <InfoText>
               <span className="emphasized">velog:_</span>
               <a
@@ -265,7 +300,7 @@ const IntroduceMyself: React.FC = () => {
         </PersonalInfo>
 
         <Section>
-          <h2>자기소개</h2>
+          <h2>👩🏻‍💻 자기소개</h2>
           <p>
             사용자 중심의 서비스 개발에 열정을 가지고 있는 프론트엔드 개발자
             이유승입니다.
@@ -278,7 +313,7 @@ const IntroduceMyself: React.FC = () => {
         </Section>
 
         <Section>
-          <h2>기술 스택</h2>
+          <h2>⌨️ 기술 스택</h2>
           <Skill>
             <SkillCategory>
               <CategoryTag>
@@ -315,27 +350,50 @@ const IntroduceMyself: React.FC = () => {
         </Section>
 
         <Section>
-          <h2>교육</h2>
-          <Education>
-            <EducationItem>
+          <h2>📝 교육</h2>
+          <EducationWrapper>
+            <LeftContent>
               <EducationContent>
                 원티드 프리온보딩 프론트엔드 인턴십 12차
               </EducationContent>
               <EducationDate>(2023.08 ~ 2023.09)</EducationDate>
-            </EducationItem>
-            <Description>
-              4주 동안 기업 과제를 수행하며 기술 역량과 협업 역량 향상을 통해
-              취업에 도전.
-            </Description>
-            <Description>
-              기업이 제공하는 실전 과제를 통해 다양한 사례를 분석하여 학습한
-              이론 및 기술을 적용하고 기술 과제 해결 역량을 향상.
-            </Description>
-            <Description>
-              취업이라는 같은 목표를 지닌 동료들과 함께 팀 프로젝트를 수행하며
-              반면교사, 정면교사 등의 충돌과 교류를 통해 협업 역량을 향상.
-            </Description>
-          </Education>
+            </LeftContent>
+
+            <RightContent>
+              <SubSectionTitle>교육 목적</SubSectionTitle>
+              <Description>
+                4주 동안 기업 과제를 수행하며 기술 역량과 협업 역량 향상을 통해
+                취업에 도전.
+              </Description>
+              <Description>
+                기업이 제공하는 실전 과제를 통해 다양한 사례를 분석하여 학습한
+                이론 및 기술을 적용하고 기술 과제 해결 역량을 향상.
+              </Description>
+              <Description>
+                취업이라는 같은 목표를 지닌 동료들과 함께 팀 프로젝트를 수행하며
+                반면교사, 정면교사 등의 충돌과 교류를 통해 협업 역량을 향상.
+              </Description>
+
+              <SubSectionTitle>주차별 프로젝트의 구현 내용</SubSectionTitle>
+
+              <Description>
+                외부 API와 연계하여 JWT 토큰과 Web Storage를 이용한 간단한 회원
+                기능 및 TodoList 기능.
+              </Description>
+              <Description>
+                Git REST API를 사용하여 특정 Repo의 이슈 데이터를 받아와서
+                적절한 형태로 화면에 출력하는 기능.
+              </Description>
+              <Description>
+                JSON 형식의 DB 데이터를 호출하여 화면에 출력, 자동 검색 및 Local
+                Cache와 Debounce을 이용한 API 호출 최적화 기능.
+              </Description>
+              <Description>
+                JSON 형식의 DB 데이터를 호출하여 차트 라이브러리를 이용해
+                데이터를 시각화하는 기능.
+              </Description>
+            </RightContent>
+          </EducationWrapper>
         </Section>
       </ContentWrapper>
     </IntroduceWrapper>
