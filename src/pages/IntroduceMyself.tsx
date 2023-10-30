@@ -111,31 +111,35 @@ const Section = styled.div`
   }
 `;
 
-const Skill = styled.div`
+const SkillWrapper = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-const SkillCategory = styled.div`
+const SkillCategoryWrapper = styled.div`
+  width: 32%; /* 3분할 */
   display: flex;
-  flex-direction: column; // 세로 배치
-  align-items: flex-start; // 좌측 정렬
-  gap: 10px;
-  margin-bottom: 10px;
+  flex-direction: column;
+  align-items: flex-start;
 
-  /* 반응형 미디어 쿼리 적용 */
-  @media (min-width: 768px) {
-    flex-direction: row; // 가로 배치
-    align-items: center; // 가로 배치 상태에서 아이템들을 중앙으로 정렬
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 40px;
   }
 `;
 
 const CategoryTag = styled.span`
+  width: 90%;
   padding: 5px 15px;
   border: 1px solid ${props => props.theme.secondaryText};
   border-radius: 5px;
   font-weight: bold;
+  margin-bottom: 10px;
 
   // 강조하고 싶은 텍스트에 클래스 이름을 추가해 색상을 변경
   span.emphasized {
@@ -153,8 +157,11 @@ const SkillItem = styled.span`
   border: 1px solid ${props => props.theme.secondaryText};
   border-radius: 5px;
   margin-right: 10px;
-  display: inline-block;
   font-weight: bold;
+  display: block; /* 블록 레벨 요소로 만들기 */
+  width: 90%;
+
+  margin-bottom: 10px;
 
   /* 반응형 미디어 쿼리 적용 */
   @media (max-width: 768px) {
@@ -314,8 +321,8 @@ const IntroduceMyself: React.FC = () => {
 
         <Section>
           <h2>⌨️ 기술 스택</h2>
-          <Skill>
-            <SkillCategory>
+          <SkillWrapper>
+            <SkillCategoryWrapper>
               <CategoryTag>
                 <span className="emphasized">프로그래밍 언어:</span>
               </CategoryTag>
@@ -323,19 +330,19 @@ const IntroduceMyself: React.FC = () => {
               <SkillItem>CSS</SkillItem>
               <SkillItem>JavaScript</SkillItem>
               <SkillItem>TypeScript</SkillItem>
-            </SkillCategory>
+            </SkillCategoryWrapper>
 
-            <SkillCategory>
+            <SkillCategoryWrapper>
               <CategoryTag>
                 <span className="emphasized">프론트엔드 스킬:</span>
               </CategoryTag>
-              <SkillItem>Styled Components</SkillItem>
               <SkillItem>React.js</SkillItem>
               <SkillItem>Redux</SkillItem>
               <SkillItem>React-Redux</SkillItem>
-            </SkillCategory>
+              <SkillItem>Styled Components</SkillItem>
+            </SkillCategoryWrapper>
 
-            <SkillCategory>
+            <SkillCategoryWrapper>
               <CategoryTag>
                 <span className="emphasized">Co-working 및 Tools:</span>
               </CategoryTag>
@@ -345,8 +352,8 @@ const IntroduceMyself: React.FC = () => {
               <SkillItem>Sourcetree</SkillItem>
               <SkillItem>Firebase</SkillItem>
               <SkillItem>Vercel</SkillItem>
-            </SkillCategory>
-          </Skill>
+            </SkillCategoryWrapper>
+          </SkillWrapper>
         </Section>
 
         <Section>
