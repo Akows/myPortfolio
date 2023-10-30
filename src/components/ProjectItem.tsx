@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { Project } from '../types/types';
+
+import gitIconBlack from '../images/icons8-github의-100 (1).png';
+import gitIconWhite from '../images/icons8-github의-100.png';
 
 interface ProjectItemProps {
   project: Project;
   openModal: (idx: number) => void;
+  currentTheme: 'white' | 'black';
 }
 
 const StyledProjectItem = styled.div`
@@ -26,7 +31,7 @@ const Container = styled.div`
 const Thumbnail = styled.div`
   position: relative;
   width: 500px;
-  height: 350px;
+  height: 450px;
   border-radius: 25px;
   flex: 1;
 
@@ -122,7 +127,21 @@ const Description = styled.div`
   }
 `;
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ project, openModal }) => {
+const GitIcon = styled.img`
+  width: 50px;
+  height: 50px;
+  transition: 0.3s ease;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+`;
+
+const ProjectItem: React.FC<ProjectItemProps> = ({
+  project,
+  openModal,
+  currentTheme,
+}) => {
   return (
     <StyledProjectItem>
       <h2
@@ -158,7 +177,16 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, openModal }) => {
 
         <Description>
           <p>{project.date}</p>
-          <a href={project.githubLink}>GitHub</a>
+          <a
+            href={project.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GitIcon
+              src={currentTheme === 'white' ? gitIconBlack : gitIconWhite}
+              alt="GitHub Link"
+            />
+          </a>
           <div className="tech-stack">
             {project.techs.map(tech => (
               <span key={tech}>{tech}</span>

@@ -6,6 +6,8 @@ import PortImg from '../images/pexels-ann-h-14936128.jpg';
 import ProjectItem from '../components/ProjectItem';
 import ProjectModal from '../components/ProjectModal';
 import { projectList } from '../Data/projectList';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 
 const PortfolioWrapper = styled.div`
   width: 100%;
@@ -44,6 +46,8 @@ const BannerWrapper = styled.div`
 `;
 
 const MyPortfolio: React.FC = () => {
+  const currentTheme = useSelector((state: RootState) => state.theme.value);
+
   // 몇번 모달창을 출력할 것인지 제어하는 state.
   const [showModal, setShowModal] = useState<number | null>(null);
 
@@ -66,6 +70,7 @@ const MyPortfolio: React.FC = () => {
             key={project.id}
             project={project}
             openModal={openModal}
+            currentTheme={currentTheme}
           />
         ))}
       </ContentWrapper>
@@ -76,6 +81,7 @@ const MyPortfolio: React.FC = () => {
           project={project}
           closeModal={closeModal}
           show={showModal === project.id}
+          currentTheme={currentTheme}
         />
       ))}
     </PortfolioWrapper>

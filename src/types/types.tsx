@@ -11,6 +11,6 @@ export interface Project {
   image: string;
   detailedDescriptions: {
     title: string;
-    contents: { subTitle: string; description: string }[];
+    contents: { description: string }[];
   }[];
 }

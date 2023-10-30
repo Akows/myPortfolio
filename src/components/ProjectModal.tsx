@@ -6,6 +6,7 @@ interface ProjectModalProps {
   project: Project;
   closeModal: () => void;
   show: boolean;
+  currentTheme: 'white' | 'black';
 }
 
 interface ModalBackgroundProps {
@@ -67,6 +68,7 @@ const ModalContent = styled.div`
 
 const LinksWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 15px;
   margin: 20px 0;
 `;
@@ -106,6 +108,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
   closeModal,
   show,
+  currentTheme,
 }) => {
   return (
     <ModalBackground show={show}>
@@ -127,8 +130,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 
           <h2>Link</h2>
           <LinksWrapper>
-            <a href={project.githubLink}>GitHub</a>
-            <a href={project.deployLink}>Deploy</a>
+            <h4>Github</h4>
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {project.githubLink}
+            </a>
+            <h4>배포링크</h4>
+            <a href={project.deployLink}>{project.deployLink}</a>
           </LinksWrapper>
           <div className="section-divider" />
 
@@ -145,8 +156,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
             <div key={detail.title}>
               <h4>{detail.title}</h4>
               {detail.contents.map(content => (
-                <div key={content.subTitle}>
-                  <h5>{content.subTitle}</h5>
+                <div key={content.description}>
                   <p>{content.description}</p>
                 </div>
               ))}
