@@ -73,8 +73,9 @@ const InfoText = styled.p`
   margin-bottom: -10px;
   color: ${props => props.theme.primaryText};
 
-  // 강조하고 싶은 텍스트에 클래스 이름을 추가해 색상을 변경
   span.emphasized {
+    display: inline-block;
+    min-width: 70px;
     color: ${props => props.theme.emphasisColor};
   }
 
@@ -265,15 +266,15 @@ const IntroduceMyself: React.FC = () => {
 
             <SubTitle>📱연락처</SubTitle>
             <InfoText>
-              <span className="emphasized">Phone:_</span>010-3629-3686
+              <span className="emphasized">Phone:</span>010-3629-3686
             </InfoText>
             <InfoText>
-              <span className="emphasized">Email:_</span>akows141@email.com
+              <span className="emphasized">Email:</span>akows141@email.com
             </InfoText>
 
             <SubTitle>🖥️Blog & Github</SubTitle>
             <InfoText>
-              <span className="emphasized">velog:_</span>
+              <span className="emphasized">velog:</span>
               <a
                 href="https://velog.io/@skyoffly"
                 target="_blank"
@@ -283,7 +284,7 @@ const IntroduceMyself: React.FC = () => {
               </a>
             </InfoText>
             <InfoText>
-              <span className="emphasized">myBlog:_</span>
+              <span className="emphasized">myBlog:</span>
               <a
                 href="https://myblog-350b6.web.app/main"
                 target="_blank"
@@ -293,7 +294,7 @@ const IntroduceMyself: React.FC = () => {
               </a>
             </InfoText>
             <InfoText>
-              <span className="emphasized">GitHub:_</span>
+              <span className="emphasized">GitHub:</span>
 
               <a
                 href="https://github.com/Akows"
