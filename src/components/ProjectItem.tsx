@@ -3,9 +3,6 @@ import styled from 'styled-components';
 
 import { Project } from '../types/types';
 
-import gitIconBlack from '../images/icons8-github의-100 (1).png';
-import gitIconWhite from '../images/icons8-github의-100.png';
-
 interface ProjectItemProps {
   project: Project;
   openModal: (idx: number) => void;
@@ -23,7 +20,7 @@ const Container = styled.div`
   align-items: center;
   gap: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1100px) {
     flex-direction: column;
   }
 `;
@@ -69,6 +66,7 @@ const Description = styled.div<{ themeName: 'white' | 'black' }>`
   flex-direction: column;
   gap: 10px;
   flex: 1.5;
+  width: 100%;
 
   & > h2 {
     position: relative;
