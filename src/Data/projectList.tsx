@@ -13,6 +13,117 @@ import PrjIcon4 from '../images/project/free-icon-g-3522346.png';
 export const projectList: Project[] = [
   {
     id: 1,
+    title: 'Essence Aura',
+    date: '2023/12/23 ~ 2024/02/28',
+    techs: ['Typescript ', 'React.js', 'Express.js', 'MySQL', 'AWS'],
+    features: [
+      'JWT를 기반으로 하는 인증 시스템을 사용하는 회원기능',
+      'Prepared Statements, Parameterized Queries 기법을 적용한 SQL 인젝션 방지 로직',
+      'Debounce, IntersectionObserver API 등이 적용된 다양한 최적화 기술들',
+    ],
+    githubLink: 'https://github.com/Akows/prj08EssenceAura',
+    deployLink:
+      'http://essenceaura-production.s3-website.ap-northeast-2.amazonaws.com/',
+    detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
+    icon: `${PrjIcon1}`,
+    image: `${PrjImg1}`,
+    detailedDescriptions: [
+      {
+        title: '사용자 관련 기능:',
+        contents: [
+          {
+            description:
+              '회원가입과 로그인 및 로그아웃, 로그인 기능을 구현하였습니다.',
+          },
+          {
+            description:
+              '사용자 이메일 찾기, 비밀번호 초기화 기능을 구현하였습니다.',
+          },
+          {
+            description:
+              '사용자 정보 조회 및 수정 및 사용자 주문 내역 조회을 구현하였습니다.',
+          },
+        ],
+      },
+      {
+        title: '쇼핑몰 관련 기능:',
+        contents: [
+          {
+            description:
+              '주문 생성 및 결제 처리, 제품 목록 및 상세 조회 기능을 구현하였습니다.',
+          },
+          {
+            description: '제품 검색 및 추천 검색어 기능을 구현하였습니다.',
+          },
+          {
+            description: '로컬 스토리지 기반의 장바구니 기능을 구현하였습니다.',
+          },
+        ],
+      },
+      {
+        title: '보안 관련 기능:',
+        contents: [
+          {
+            description:
+              'JWT 기반의 인증 시스템을 구축하여 사용자 인증 상태 검증 기능을 구현하였습니다.',
+          },
+          {
+            description:
+              'bcrypt 라이브러리를 사용하여 회원가입시 사용자 비밀번호를 암호화하여 저장하도록 하였습니다.',
+          },
+          {
+            description:
+              'HTTP Only 및 Secure 쿠키를 사용하여 클라이언트단에서 CSS(Cross Site Scripting) 공격을 방지하였습니다.',
+          },
+          {
+            description:
+              '사용자 입력값에 대한 유효성 검사를 실시하여 에러 방지 및 CSS(Cross Site Scripting) 공격을 방지하였습니다.',
+          },
+          {
+            description:
+              'Prepared Statements을 적용하여 SQL 인젝션 방지 로직을 구현하였습니다.',
+          },
+          {
+            description:
+              'NodeMailer 라이브러리를 이용한 이메일 인증 기능을 구현하였습니다.',
+          },
+        ],
+      },
+      {
+        title: '최적화 관련 기능:',
+        contents: [
+          {
+            description:
+              'Debounce 함수를 구현하여 사용자 검색어 입력 처리를 최적화하였습니다.',
+          },
+          {
+            description:
+              'IntersectionObserver API을 이용한 무한스크롤 기능 및 페이지네이션 기능을 구현하여 데이터 호출 과정을 최적화하였습니다.',
+          },
+        ],
+      },
+      {
+        title: 'UI/UX 관련 기능:',
+        contents: [
+          {
+            description:
+              '반응형 웹을 구현하여 다양한 디바이스에서의 호환성을 보장하도록 하였습니다.',
+          },
+        ],
+      },
+      {
+        title: '배포 관련:',
+        contents: [
+          {
+            description:
+              'AWS S3, EC2, RDS를 이용하여 프로젝트의 프론트엔드, 백엔드, 데이터베이스 서비스를 배포할 수 있는 환경을 구축하였습니다. ',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
     title: 'Genshindex',
     date: '2023/08/30 ~ 2023/09/04',
     techs: ['Typescript ', 'React.js', 'Styled Components', 'Vercel'],
@@ -73,7 +184,7 @@ export const projectList: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: 'Pyro Blossom',
     date: '2023/05/01 ~ 2023/08/11',
     techs: [
@@ -162,7 +273,7 @@ export const projectList: Project[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: 'MyBlog',
     date: '2023/01/03 ~ 2023/03/22',
     techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
@@ -223,7 +334,7 @@ export const projectList: Project[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Genshinimpact Web',
     date: '2022/11/04 ~ 2022/12/15',
     techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
