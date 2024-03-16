@@ -4,11 +4,13 @@ import PrjImg1 from '../images/project/image.png';
 import PrjImg2 from '../images/project/image (3).png';
 import PrjImg4 from '../images/project/image (2).png';
 import PrjImg3 from '../images/project/image (4).png';
+import PrjImg5 from '../images/project/images.png';
 
 import PrjIcon1 from '../images/project/logo-1-96x93.png';
 import PrjIcon2 from '../images/project/Element_Pyro.svg';
 import PrjIcon3 from '../images/project/favicon.ico';
 import PrjIcon4 from '../images/project/free-icon-g-3522346.png';
+import PrjIcon5 from '../images/project/logo5.jpg';
 
 export const projectList: Project[] = [
   {
@@ -25,8 +27,8 @@ export const projectList: Project[] = [
     deployLink:
       'http://essenceaura-production.s3-website.ap-northeast-2.amazonaws.com/',
     detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
-    icon: `${PrjIcon1}`,
-    image: `${PrjImg1}`,
+    icon: `${PrjIcon5}`,
+    image: `${PrjImg5}`,
     detailedDescriptions: [
       {
         title: '사용자 관련 기능:',
