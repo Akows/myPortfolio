@@ -274,135 +274,135 @@ export const projectList: Project[] = [
       },
     ],
   },
-  {
-    id: 4,
-    title: 'MyBlog',
-    date: '2023/01/03 ~ 2023/03/22',
-    techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
-    features: [
-      '사용자 인증, 회원가입, 로그인-로그아웃',
-      '회원 데이터 및 블로그 포스트와 댓글에 대한 CRUD 기능',
-      '게시물의 정렬 및 검색',
-    ],
-    githubLink: 'https://github.com/Akows/prj06myBlog',
-    deployLink: 'https://myblog-350b6.web.app/main',
-    detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
-    icon: `${PrjIcon3}`,
-    image: `${PrjImg3}`,
-    detailedDescriptions: [
-      {
-        title: 'Firebase & Firestore 관련 기능:',
-        contents: [
-          {
-            description:
-              'Google Firebase를 활용하여 사용자 인증 및 회원가입, 로그인, 로그아웃 등의 회원 관리 기능을 구현했습니다.',
-          },
-          {
-            description:
-              'FireStore를 이용하여 회원 데이터와 게시글, 댓글에 대한 CRUD 기능을 구현했습니다.',
-          },
-          {
-            description:
-              '게시글의 분류 및 검색 기능을 위해 FireStore 쿼리를 적용했습니다.',
-          },
-        ],
-      },
-      {
-        title: 'UI/UX 및 반응형 웹 구현:',
-        contents: [
-          {
-            description:
-              '순수 Javascript를 이용하여 효율적인 pagination 기능을 구현했습니다.',
-          },
-          {
-            description:
-              'CSS Media Query를 통해 데스크톱 및 모바일 환경에 대응하는 반응형 웹 디자인을 구현했습니다.',
-          },
-          {
-            description:
-              '웹 페이지의 전환 및 애니메이션 효과를 위해 CSS Animation과 keyframes를 활용하여 사용자 경험을 향상시켰습니다.',
-          },
-        ],
-      },
-      {
-        title: '전역 상태 관리 및 코드 품질:',
-        contents: [
-          {
-            description:
-              'Context API를 도입하여 전역 상태 관리를 효율화하고, 이를 통해 props drilling 문제를 해결했습니다.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: 'Genshinimpact Web',
-    date: '2022/11/04 ~ 2022/12/15',
-    techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
-    features: [
-      '간단한 CRUD 기능이 포함된 익명 자유게시판',
-      '순수 Javascript만을 활용한 슬라이드 쇼와 페이지네이션',
-      'slice와 filter 메서드를 활용한 게시글 검색',
-    ],
-    githubLink: 'https://github.com/Akows/prj03RE',
-    deployLink: 'https://prj03deploy.web.app/',
-    detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
-    icon: `${PrjIcon4}`,
-    image: `${PrjImg4}`,
-    detailedDescriptions: [
-      {
-        title: '개선된 코드 품질 및 가독성:',
-        contents: [
-          {
-            description:
-              '코드 가독성, 유지보수성에 문제가 있던 구버전에 대한 반성을 바탕으로 코드의 가독성 및 구조를 크게 개선했습니다.',
-          },
-        ],
-      },
-      {
-        title: '데이터 관리 및 전역 상태 관리:',
-        contents: [
-          {
-            description:
-              'Web Storage를 도입하여 사용자 데이터의 CRUD 기능을 효과적으로 구현했습니다.',
-          },
-          {
-            description:
-              'Context API를 활용하여 전역 상태를 관리하고, props drilling 문제를 방지했습니다.',
-          },
-        ],
-      },
-      {
-        title: 'UI/UX 디자인 및 기능 구현:',
-        contents: [
-          {
-            description:
-              '다양한 image와 icon을 조합하여 고품질의 UI를 설계하고 구현했습니다.',
-          },
-          {
-            description:
-              'Javascript의 slice와 filter 메서드를 활용하여 사용자가 원하는 게시글을 검색 및 필터링하여 화면에 표시하는 기능을 제공합니다.',
-          },
-          {
-            description:
-              '외부 라이브러리에 의존하지 않고 순수 바닐라 Javascript만을 활용하여 슬라이드 및 pagination 기능을 구현했습니다.',
-          },
-        ],
-      },
-      {
-        title: '반응형 디자인 및 애니메이션:',
-        contents: [
-          {
-            description:
-              'CSS Media Query를 사용하여 데스크톱과 모바일 간의 원활한 전환을 지원하는 반응형 웹 디자인을 구현했습니다.',
-          },
-          {
-            description:
-              '사용자 경험을 향상시키기 위해 CSS Animation과 keyframes를 활용하여 부드러운 웹 UI 전환 애니메이션을 적용했습니다.',
-          },
-        ],
-      },
-    ],
-  },
+  // {
+  //   id: 4,
+  //   title: 'MyBlog',
+  //   date: '2023/01/03 ~ 2023/03/22',
+  //   techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
+  //   features: [
+  //     '사용자 인증, 회원가입, 로그인-로그아웃',
+  //     '회원 데이터 및 블로그 포스트와 댓글에 대한 CRUD 기능',
+  //     '게시물의 정렬 및 검색',
+  //   ],
+  //   githubLink: 'https://github.com/Akows/prj06myBlog',
+  //   deployLink: 'https://myblog-350b6.web.app/main',
+  //   detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
+  //   icon: `${PrjIcon3}`,
+  //   image: `${PrjImg3}`,
+  //   detailedDescriptions: [
+  //     {
+  //       title: 'Firebase & Firestore 관련 기능:',
+  //       contents: [
+  //         {
+  //           description:
+  //             'Google Firebase를 활용하여 사용자 인증 및 회원가입, 로그인, 로그아웃 등의 회원 관리 기능을 구현했습니다.',
+  //         },
+  //         {
+  //           description:
+  //             'FireStore를 이용하여 회원 데이터와 게시글, 댓글에 대한 CRUD 기능을 구현했습니다.',
+  //         },
+  //         {
+  //           description:
+  //             '게시글의 분류 및 검색 기능을 위해 FireStore 쿼리를 적용했습니다.',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'UI/UX 및 반응형 웹 구현:',
+  //       contents: [
+  //         {
+  //           description:
+  //             '순수 Javascript를 이용하여 효율적인 pagination 기능을 구현했습니다.',
+  //         },
+  //         {
+  //           description:
+  //             'CSS Media Query를 통해 데스크톱 및 모바일 환경에 대응하는 반응형 웹 디자인을 구현했습니다.',
+  //         },
+  //         {
+  //           description:
+  //             '웹 페이지의 전환 및 애니메이션 효과를 위해 CSS Animation과 keyframes를 활용하여 사용자 경험을 향상시켰습니다.',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: '전역 상태 관리 및 코드 품질:',
+  //       contents: [
+  //         {
+  //           description:
+  //             'Context API를 도입하여 전역 상태 관리를 효율화하고, 이를 통해 props drilling 문제를 해결했습니다.',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 5,
+  //   title: 'Genshinimpact Web',
+  //   date: '2022/11/04 ~ 2022/12/15',
+  //   techs: ['Javascript', 'React.js', 'Context API', 'Firebase'],
+  //   features: [
+  //     '간단한 CRUD 기능이 포함된 익명 자유게시판',
+  //     '순수 Javascript만을 활용한 슬라이드 쇼와 페이지네이션',
+  //     'slice와 filter 메서드를 활용한 게시글 검색',
+  //   ],
+  //   githubLink: 'https://github.com/Akows/prj03RE',
+  //   deployLink: 'https://prj03deploy.web.app/',
+  //   detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
+  //   icon: `${PrjIcon4}`,
+  //   image: `${PrjImg4}`,
+  //   detailedDescriptions: [
+  //     {
+  //       title: '개선된 코드 품질 및 가독성:',
+  //       contents: [
+  //         {
+  //           description:
+  //             '코드 가독성, 유지보수성에 문제가 있던 구버전에 대한 반성을 바탕으로 코드의 가독성 및 구조를 크게 개선했습니다.',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: '데이터 관리 및 전역 상태 관리:',
+  //       contents: [
+  //         {
+  //           description:
+  //             'Web Storage를 도입하여 사용자 데이터의 CRUD 기능을 효과적으로 구현했습니다.',
+  //         },
+  //         {
+  //           description:
+  //             'Context API를 활용하여 전역 상태를 관리하고, props drilling 문제를 방지했습니다.',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'UI/UX 디자인 및 기능 구현:',
+  //       contents: [
+  //         {
+  //           description:
+  //             '다양한 image와 icon을 조합하여 고품질의 UI를 설계하고 구현했습니다.',
+  //         },
+  //         {
+  //           description:
+  //             'Javascript의 slice와 filter 메서드를 활용하여 사용자가 원하는 게시글을 검색 및 필터링하여 화면에 표시하는 기능을 제공합니다.',
+  //         },
+  //         {
+  //           description:
+  //             '외부 라이브러리에 의존하지 않고 순수 바닐라 Javascript만을 활용하여 슬라이드 및 pagination 기능을 구현했습니다.',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: '반응형 디자인 및 애니메이션:',
+  //       contents: [
+  //         {
+  //           description:
+  //             'CSS Media Query를 사용하여 데스크톱과 모바일 간의 원활한 전환을 지원하는 반응형 웹 디자인을 구현했습니다.',
+  //         },
+  //         {
+  //           description:
+  //             '사용자 경험을 향상시키기 위해 CSS Animation과 keyframes를 활용하여 부드러운 웹 UI 전환 애니메이션을 적용했습니다.',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
