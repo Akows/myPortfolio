@@ -87,7 +87,7 @@ export const projectList: Project[] = [
     ],
     githubLink: 'https://github.com/Akows/prj08EssenceAura',
     deployLink:
-      'http://essenceaura-production.s3-website.ap-northeast-2.amazonaws.com/',
+      '',
     detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
     icon: `${PrjIcon5}`,
     image: `${PrjImg5}`,
