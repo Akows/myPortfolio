@@ -6,6 +6,8 @@ import PrjImg4 from '../images/project/image (2).png';
 import PrjImg3 from '../images/project/image (4).png';
 import PrjImg5 from '../images/project/images.png';
 
+import PrjImg6 from '../images/project/mainimg.png';
+
 import PrjIcon1 from '../images/project/logo-1-96x93.png';
 import PrjIcon2 from '../images/project/Element_Pyro.svg';
 import PrjIcon3 from '../images/project/favicon.ico';
@@ -15,6 +17,66 @@ import PrjIcon5 from '../images/project/logo5.jpg';
 export const projectList: Project[] = [
   {
     id: 1,
+    title: '똘개비',
+    date: '2025.04 ~ 2025.05',
+    techs: ['Typescript', 'Next.js', 'Express.js', 'MySQL', 'AWS EC2/RDS/CloudWatch', 'Prisma', 'Zod', 'Morgan', 'Sentry'],
+    features: [
+      '나의 똘똘한 개인 비서, 일정 관리/날씨와 뉴스 정보/약속 장소까지 교통 정보 제공',
+      '팀 구성 :: 프론트엔드 2명(UI/UX 디자인 포함), 백엔드 3명(배포, 인프라 포함)',
+      '나의 역할 :: 팀장, 백엔드 개발 및 유지보수',
+    ],
+    githubLink: 'https://github.com/orgs/kdt5-3rd/repositories',
+    deployLink:
+      'https://ttolgaebi.com/',
+    detailedFeatures: ['상세설명 1', '상세설명 2', '상세설명 3'],
+    icon: `${PrjIcon5}`,
+    image: `${PrjImg6}`,
+    detailedDescriptions: [
+      {
+        title: '🧩 주요 역할 및 성과',
+        contents: [
+          {
+            description:
+              '기획, 일정 관리, 회의 리딩 등 프로젝트 전반 주도.',
+          },
+          {
+            description:
+              'MVP 목표를 설정하고, 기능별 1차/2차 우선순위를 명확히 구분하여 단계별 개발 계획 수립.',
+          },
+          {
+            description:
+              '기능 통합 이슈 해결 및 팀원 간 협업 구조 조율.',
+          },
+        ],
+      },
+      {
+        title: '기술 구현 및 운영 경험',
+        contents: [
+          {
+            description:
+              'AWS EC2/RDS를 이용한 서버 인프라 구축 및 HTTPS(SSL) 인증 완료.',
+          },
+          {
+            description: 'GitHub Actions를 이용해 main 브랜치 병합 시 자동 배포되는 CI/CD 파이프라인 구축.',
+          },
+          {
+            description: 'Express.js + Prisma ORM 조합으로 RESTful API 설계 및 구현.',
+          },
+          {
+            description: 'JWT 기반 인증/인가 시스템 구축 및 보안 강화 (CORS 세분화, 민감 경로 차단 등).',
+          },
+          {
+            description: 'Zod 라이브러리를 통해 API 입력 데이터 유효성 검사 체계화.',
+          },
+          {
+            description: 'Morgan 기반 파일 로깅 + Sentry 연동을 통한 실시간 에러 모니터링 시스템 구축.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
     title: 'Essence Aura',
     date: '2023/12/23 ~ 2024/02/28',
     techs: ['Typescript ', 'React.js', 'Express.js', 'MySQL', 'AWS'],
@@ -125,7 +187,7 @@ export const projectList: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: 'Genshindex',
     date: '2023/08/30 ~ 2023/09/04',
     techs: ['Typescript ', 'React.js', 'Styled Components', 'Vercel'],
@@ -186,7 +248,7 @@ export const projectList: Project[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: 'Pyro Blossom',
     date: '2023/05/01 ~ 2023/08/11',
     techs: [
