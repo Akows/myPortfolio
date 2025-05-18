@@ -19,7 +19,17 @@ export const projectList: Project[] = [
     id: 1,
     title: '똘개비',
     date: '2025.04 ~ 2025.05',
-    techs: ['Typescript', 'Next.js', 'Express.js', 'MySQL', 'AWS EC2/RDS/CloudWatch', 'Prisma', 'Zod', 'Morgan', 'Sentry'],
+    techs: [
+      'Typescript',
+      'Next.js',
+      'Express.js',
+      'MySQL',
+      'AWS EC2/RDS/CloudWatch',
+      'Prisma',
+      'Zod',
+      'Morgan',
+      'Sentry',
+    ],
     features: [
       '나의 똘똘한 개인 비서, 일정 관리/날씨와 뉴스 정보/약속 장소까지 교통 정보 제공',
       '팀 구성 :: 프론트엔드 2명(UI/UX 디자인 포함), 백엔드 3명(배포, 인프라 포함)',
