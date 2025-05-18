@@ -6,7 +6,7 @@ import PrjImg4 from '../images/project/image (2).png';
 import PrjImg3 from '../images/project/image (4).png';
 import PrjImg5 from '../images/project/images.png';
 
-import PrjImg6 from '../images/project/mainimg.png';
+import PrjImg6 from '../images/project/tgbmain.png';
 
 import PrjIcon1 from '../images/project/logo-1-96x93.png';
 import PrjIcon2 from '../images/project/Element_Pyro.svg';
