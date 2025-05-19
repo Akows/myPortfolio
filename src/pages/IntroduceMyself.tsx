@@ -318,6 +318,34 @@ const IntroduceMyself: React.FC = () => {
             위해 끊임없이 학습하고 도전하고 있습니다. 기술과 창의력을 결합하여
             세상에 긍정적인 영향을 미치고 싶습니다.
           </p>
+          <h3>
+            새로운 기술을 빠르게 흡수해 실전에 적용하는 풀스택 개발자입니다.
+          </h3>
+          <b>자기주도적으로 문제를 해결하고 빠르게 적응하는 개발자입니다.</b>
+          <p>
+            프론트부터 백엔드, DB, 인프라 운영까지 전 주기를 경험하며
+            TypeScript, React.js, Express.js, MySQL, AWS, Git, Notion 등을
+            활용해 프로젝트 기획부터 구현, 인프라 구축, 배포 및 운영까지 개발 전
+            과정을 주도적으로 완수했습니다. 특히 7인 팀 프 로젝트에서 팀장을
+            맡아 RESTful API 설계, AWS 기반 인프라 구축, CI/CD 자동화, 실시간
+            에러 모니터링(Sentry+Slack)까지 주도하며 단순 구현을 넘어, 안정적인
+            서 비스 운영과 품질 관리 시스템을 구축했습니다.
+          </p>
+          <b>프론트엔드에 국한되지 않는 풀스택 역량을 가진 개발자입니다.</b>
+          <p>
+            다양한 분야의 기술 지식을 바탕으로 팀원들과의 효율적
+            커뮤니케이션으로 프로젝 트 목표를 성공적으로 달성해왔습니다. 이번
+            프로젝트에서는 팀원 간의 기술적 견해 차이를 조율하고 문제 해결을
+            주도해 API 정상 작동률 95% 유지, 장애 복구 평균 30분 이내 대응,
+            CI/CD 자동화로 배포 시간 70% 단축의 성과를 만들어냈습니다.
+          </p>
+          <b>지속적인 학습과 성장을 실천하는 개발자입니다.</b>
+          <p>
+            개인 블로그를 운영하며 약 300개의 기술 포스트를 작성하며, 최신 기술
+            트렌드, 풀 스택 아키텍처 설계, DevOps 사례 등을 기록했습니다. 이를
+            통해 직면한 기술 문제 해결 과정을 기록하며, 도구와 프레임워크에 대한
+            깊이 있는 이해를 지속적으로 넓 혀왔습니다.
+          </p>
         </Section>
 
         <Section>
@@ -329,36 +357,67 @@ const IntroduceMyself: React.FC = () => {
               </CategoryTag>
               <SkillItem>1️⃣ HTML</SkillItem>
               <SkillItem>2️⃣ CSS</SkillItem>
-              <SkillItem>3️⃣ JavaScript</SkillItem>
-              <SkillItem>4️⃣ TypeScript</SkillItem>
+              <SkillItem>3️⃣ JavaScript, TypeScript</SkillItem>
             </SkillCategoryWrapper>
 
             <SkillCategoryWrapper>
               <CategoryTag>
-                <span className="emphasized">#️프론트엔드 스킬:</span>
+                <span className="emphasized">#️프론트엔드/백엔드 스킬:</span>
               </CategoryTag>
               <SkillItem>1️⃣ React.js</SkillItem>
               <SkillItem>2️⃣ Redux</SkillItem>
-              <SkillItem>3️⃣ React-Redux</SkillItem>
-              <SkillItem>4️⃣ Styled Components</SkillItem>
+              <SkillItem>3️⃣ Styled Components, TailwindCSS</SkillItem>
+              <SkillItem>4️⃣ Node.js, Express.js</SkillItem>
+              <SkillItem>5️⃣ Zod, Morgan</SkillItem>
             </SkillCategoryWrapper>
 
             <SkillCategoryWrapper>
               <CategoryTag>
                 <span className="emphasized">#️Co-working 및 Tools:</span>
               </CategoryTag>
-              <SkillItem>1️⃣ VS Code</SkillItem>
-              <SkillItem>2️⃣ Git</SkillItem>
-              <SkillItem>3️⃣ Github</SkillItem>
-              <SkillItem>4️⃣ Sourcetree</SkillItem>
-              <SkillItem>5️⃣ Firebase</SkillItem>
-              <SkillItem>6️⃣ Vercel</SkillItem>
+              <SkillItem>1️⃣ Git, Github, Sourcetree</SkillItem>
+              <SkillItem>2️⃣ AWS EC2, RDS, S3, Route 53, CloudWatch</SkillItem>
+              <SkillItem>3️⃣ Slack, Notion</SkillItem>
+              <SkillItem>4️⃣ Sentry</SkillItem>
             </SkillCategoryWrapper>
           </SkillWrapper>
         </Section>
 
         <Section>
           <h2>📝 교육</h2>
+          <EducationWrapper>
+            <LeftContent>
+              <EducationContent>
+                프로그래머스 데브코스 풀스택 5기
+              </EducationContent>
+              <EducationDate>(2024.11 ~ 2025.05)</EducationDate>
+            </LeftContent>
+
+            <RightContent>
+              <SubSectionTitle>교육 목적</SubSectionTitle>
+              <Description>
+                웹 전반 기술(Git, REST API, JWT, React+TS, Docker 등)을
+                실습하며, 다수의 실무형 프로젝트(DB 모델링, 일정 관리 시스템,
+                문서 편집기 등) 수행
+              </Description>
+              <Description>
+                기획 수립, 기술 스택 선정, 역할 분담 등 프로젝트 전반을 주도하며
+                팀 리딩 역량 강화
+              </Description>
+              <Description>
+                Express.js, Prisma, AWS EC2/RDS 기반 인프라 구성 및 GitHub
+                Actions로 CI/CD 자동화 구축
+              </Description>
+              <Description>
+                Notion, Git, Slack을 활용한 문서 중심 협업 체득
+              </Description>
+              <Description>
+                ChatGPT 기반 설계 리뷰, 테스트 자동화 및 반복 작업 최적화로
+                생산성 향상
+              </Description>
+            </RightContent>
+          </EducationWrapper>
+
           <EducationWrapper>
             <LeftContent>
               <EducationContent>
