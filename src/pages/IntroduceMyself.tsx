@@ -309,15 +309,6 @@ const IntroduceMyself: React.FC = () => {
 
         <Section>
           <h2>👩🏻‍💻 자기소개</h2>
-          <p>
-            사용자 중심의 서비스 개발에 열정을 가지고 있는 프론트엔드 개발자
-            이유승입니다.
-          </p>
-          <p>
-            다양한 프로젝트를 통해 사용자 친화적인 UI와 효율적인 기능 구현을
-            위해 끊임없이 학습하고 도전하고 있습니다. 기술과 창의력을 결합하여
-            세상에 긍정적인 영향을 미치고 싶습니다.
-          </p>
           <h3>
             새로운 기술을 빠르게 흡수해 실전에 적용하는 풀스택 개발자입니다.
           </h3>
@@ -417,6 +408,9 @@ const IntroduceMyself: React.FC = () => {
               </Description>
             </RightContent>
           </EducationWrapper>
+
+          <br></br>
+          <br></br>
 
           <EducationWrapper>
             <LeftContent>
